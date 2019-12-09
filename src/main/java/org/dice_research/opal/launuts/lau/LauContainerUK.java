@@ -13,6 +13,16 @@ public class LauContainerUK {
     public String population ;
     public String totalArea ;
     public String cityName ;
+    public String degubra ;
+    public String cityId;
+    public String degChange;
+    public String cityIdChange;
+    public String greaterCityChange;
+    public String greaterCityIdChange;
+    public String greaterCityName;
+    public String fuaId;
+    public String fuaIdChange;
+    public String fuaName;
 
 
     private String getSimpleName() {
@@ -31,7 +41,21 @@ public class LauContainerUK {
     @Override
     public String toString() {
         String stringBuilder = getSimpleName() +
-                " | " +lauNameLatin + " | " +lauCode +" | " +population +" | " + totalArea;
+                " | "
+                +lauNameLatin + " | "
+                +lauCode +" | "
+                +population +" | "
+                +totalArea +" | "
+                +degubra +" | "
+                +cityId +" | "
+                +degChange +" | "
+                +cityIdChange +" | "
+                +greaterCityChange +" | "
+                +greaterCityIdChange +" | "
+                +greaterCityName +" | "
+                +fuaId +" | "
+                +fuaIdChange +" | "
+                +fuaName +" | " ;
 
         return stringBuilder;
     }
