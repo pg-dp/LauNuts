@@ -50,6 +50,7 @@ public abstract class Vocabularies {
 	public static final String NS_NUTS = NS_LAUNUTS + "nuts/";
 	public static final String NS_LAU = NS_LAUNUTS + "lau/";
 	public static final String NS_LAU_DE = NS_LAU + "DE/";
+	public static final String NS_LAU_UK = NS_LAU + "UK/";
 	public static final Resource RES_NUTS = ResourceFactory.createResource(NS_LAUNUTS + "NUTS");
 	public static final Resource RES_LAU = ResourceFactory.createResource(NS_LAUNUTS + "LAU");
 	public static final Resource RES_NUTS_0 = ResourceFactory.createResource(NS_LAUNUTS + "NUTS-0");
