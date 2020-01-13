@@ -2,7 +2,9 @@ package org.dice_research.opal.launuts.lau;
 
 import org.dice_research.opal.launuts.Vocabularies;
 
-public class LauContainerUK {
+import java.io.Serializable;
+
+public class LauContainerUK extends  LauContainer implements Serializable  {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,8 @@ public class LauContainerUK {
     public String fuaName;
 
 
-    private String getSimpleName() {
+
+    public String getSimpleName() {
         String simpleName = lauNameNational;
         String[] parts = lauNameNational.split(",");
         if (parts.length > 1) {

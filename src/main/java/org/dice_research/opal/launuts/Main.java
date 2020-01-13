@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.dbpedia.DbpediaRemote;
 import org.dice_research.opal.launuts.lau.LauContainer;
+import org.dice_research.opal.launuts.lau.LauContainerUK;
 import org.dice_research.opal.launuts.matcher.MatcherVersion2;
 import org.dice_research.opal.launuts.matcher.StaticMappings;
 import org.dice_research.opal.launuts.nuts.NutsContainer;
@@ -37,6 +38,7 @@ public class Main {
 
 		// Parse LAU CSV
 		List<LauContainer> lauList = Cache.getLau(true);
+		List<LauContainerUK> lauListUK = Cache.getLauUK(true);
 
 		// Parse DBpedia places
 		Map<String, DbpediaPlaceContainer> dbpediaIndex = DbpediaRemote.createPlacesIndex(Cache.getDbpedia(true));
@@ -51,6 +53,8 @@ public class Main {
 				.addNuts(nutsIndex.values())
 
 				.addLau(lauList)
+
+				.addLauUK(lauListUK)
 
 				.addGeoData(dbpediaIndex, matcher.getNutsToDbpedia(), matcher.getLauToDbpedia())
 

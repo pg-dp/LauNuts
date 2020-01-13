@@ -8,7 +8,9 @@ import java.util.Map;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.dbpedia.DbpediaRemote;
 import org.dice_research.opal.launuts.lau.LauContainer;
+import org.dice_research.opal.launuts.lau.LauContainerUK;
 import org.dice_research.opal.launuts.lau.LauCsvParser;
+import org.dice_research.opal.launuts.lau.LauCsvParserUK;
 import org.dice_research.opal.launuts.nuts.NutsContainer;
 import org.dice_research.opal.launuts.nuts.NutsRdfExtractor;
 import org.dice_research.opal.launuts.utils.Serialization;
@@ -22,6 +24,7 @@ public abstract class Cache extends Serialization {
 
 	public static final File FILE_DBPEDIA = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "dbpedia");
 	public static final File FILE_LAU = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "lau");
+	public static final File FILE_LAUUK = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "lauUK");
 	public static final File FILE_NUTS = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "nuts");
 
 	/**
@@ -64,6 +67,21 @@ public abstract class Cache extends Serialization {
 		}
 	}
 
+	public static List<LauContainerUK> getLauUK(boolean useCache) throws Exception {
+		if (useCache && Cache.FILE_LAUUK.exists()) {
+			List<LauContainerUK> lauUK = Cache.readLauUK();
+			System.out.println("Read " + lauUK.size() + " LAU from cache.");
+			return lauUK;
+		} else {
+			System.out.println("Computing LAU.");
+			LauCsvParserUK lauCsvParserUK = new LauCsvParserUK().parse(Cfg.getInstance().get(Cfg.LAU_FILEUK));
+			if (useCache) {
+				Cache.writeLauUK(lauCsvParserUK.getLauList());
+			}
+			return lauCsvParserUK.getLauList();
+		}
+	}
+
 	/**
 	 * Reads data from cache, if {@code useCache} is set and cache-file exists.
 	 * 
@@ -102,6 +120,11 @@ public abstract class Cache extends Serialization {
 	}
 
 	@SuppressWarnings("unchecked")
+	protected static List<LauContainerUK> readLauUK() throws ClassNotFoundException, IOException {
+		return (List<LauContainerUK>) Serialization.read(FILE_LAUUK);
+	}
+
+	@SuppressWarnings("unchecked")
 	protected static Map<String, NutsContainer> readNuts() throws ClassNotFoundException, IOException {
 		return (Map<String, NutsContainer>) Serialization.read(FILE_NUTS);
 	}
@@ -121,6 +144,12 @@ public abstract class Cache extends Serialization {
 		FILE_LAU.getParentFile().mkdirs();
 		write(lau, FILE_LAU);
 	}
+
+	protected static void writeLauUK(List<LauContainerUK> lauUK) throws IOException {
+		FILE_LAUUK.getParentFile().mkdirs();
+		write(lauUK, FILE_LAUUK);
+	}
+
 
 	/**
 	 * Writes data to cache file.

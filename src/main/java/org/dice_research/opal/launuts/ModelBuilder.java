@@ -18,6 +18,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.lau.LauContainer;
+import org.dice_research.opal.launuts.lau.LauContainerUK;
 import org.dice_research.opal.launuts.nuts.NutsContainer;
 
 import io.github.galbiston.geosparql_jena.implementation.datatype.WKTDatatype;
@@ -121,7 +122,7 @@ public class ModelBuilder {
 	}
 
 	public ModelBuilder addLau(List<LauContainer> lauList) {
-		for (LauContainer container : lauList) {
+		for (LauContainer  container : lauList) {
 			Resource lau = getModel().createResource(container.getUri());
 			if (nuts3map.containsKey(container.nuts3code)) {
 
@@ -140,6 +141,35 @@ public class ModelBuilder {
 				getModel().add(lau, Vocabularies.PROP_PREFLABEL, getModel().createLiteral(container.getSimpleName()));
 				if (!container.getSimpleName().equals(container.lauNameLatin)) {
 					getModel().add(lau, Vocabularies.PROP_ALTLABEL, getModel().createLiteral(container.lauNameLatin));
+				}
+			} else {
+				System.err.println("Unknown NUTS3 code: " + container.nuts3code + " for " + container.lauCode);
+				continue;
+			}
+		}
+		return this;
+	}
+
+	public ModelBuilder addLauUK(List<LauContainerUK> lauList) {
+		for (LauContainerUK  container : lauList) {
+			Resource lauUK = getModel().createResource(container.getUri());
+			if (nuts3map.containsKey(container.nuts3code)) {
+
+				if (ADD_TYPE_CONCEPT) {
+					getModel().add(lauUK, Vocabularies.PROP_TYPE, Vocabularies.RES_CONCEPT);
+				}
+				getModel().add(lauUK, Vocabularies.PROP_TYPE, Vocabularies.RES_LAU);
+
+				getModel().add(lauUK, Vocabularies.PROP_BROADER, nuts3map.get(container.nuts3code));
+				if (ADD_NARROWER) {
+					getModel().add(nuts3map.get(container.nuts3code), Vocabularies.PROP_NARROWER, lauUK);
+				}
+
+				getModel().add(lauUK, Vocabularies.PROP_NOTATION, getModel().createLiteral(container.lauCode));
+
+				getModel().add(lauUK, Vocabularies.PROP_PREFLABEL, getModel().createLiteral(container.getSimpleName()));
+				if (!container.getSimpleName().equals(container.lauNameLatin)) {
+					getModel().add(lauUK, Vocabularies.PROP_ALTLABEL, getModel().createLiteral(container.lauNameLatin));
 				}
 			} else {
 				System.err.println("Unknown NUTS3 code: " + container.nuts3code + " for " + container.lauCode);
