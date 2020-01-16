@@ -3,6 +3,7 @@ package org.dice_research.opal.launuts;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -40,6 +41,11 @@ public class Main {
 		List<LauContainer> lauList = Cache.getLau(true);
 		List<LauContainerUK> lauListUK = Cache.getLauUK(true);
 
+		List<LauContainer> lauListUkTest =new LinkedList<LauContainer>();
+		for (LauContainerUK lauContainerUK : lauListUK) {
+				lauListUkTest.add(lauContainerUK);
+		}
+
 		// Parse DBpedia places
 		Map<String, DbpediaPlaceContainer> dbpediaIndex = DbpediaRemote.createPlacesIndex(Cache.getDbpedia(true));
 
@@ -54,7 +60,7 @@ public class Main {
 
 				.addLau(lauList)
 
-				.addLauUK(lauListUK)
+				.addLau(lauListUkTest)
 
 				.addGeoData(dbpediaIndex, matcher.getNutsToDbpedia(), matcher.getLauToDbpedia())
 
@@ -66,6 +72,12 @@ public class Main {
 		System.out.println();
 		System.out.println(statistics);
 		FileUtils.write(new File(Cfg.getInstance().get(Cfg.OUT_DIRECTORY), "statistics.txt"), statistics,
+				StandardCharsets.UTF_8);
+
+		String statisticsUK = new StatisticsUK(modelBuilder.getModel()).compute().getString();
+		System.out.println();
+		System.out.println(statisticsUK);
+		FileUtils.write(new File(Cfg.getInstance().get(Cfg.OUT_DIRECTORY), "statisticsUK.txt"), statisticsUK,
 				StandardCharsets.UTF_8);
 
 		// Analysis

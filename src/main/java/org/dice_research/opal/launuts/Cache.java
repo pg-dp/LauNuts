@@ -70,10 +70,10 @@ public abstract class Cache extends Serialization {
 	public static List<LauContainerUK> getLauUK(boolean useCache) throws Exception {
 		if (useCache && Cache.FILE_LAUUK.exists()) {
 			List<LauContainerUK> lauUK = Cache.readLauUK();
-			System.out.println("Read " + lauUK.size() + " LAU from cache.");
+			System.out.println("Read " + lauUK.size() + " LAU_UK from cache.");
 			return lauUK;
 		} else {
-			System.out.println("Computing LAU.");
+			System.out.println("Computing LAU_UK.");
 			LauCsvParserUK lauCsvParserUK = new LauCsvParserUK().parse(Cfg.getInstance().get(Cfg.LAU_FILEUK));
 			if (useCache) {
 				Cache.writeLauUK(lauCsvParserUK.getLauList());

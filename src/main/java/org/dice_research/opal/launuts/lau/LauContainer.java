@@ -39,6 +39,7 @@ public class LauContainer implements Serializable {
 		stringBuilder.append(lauNameLatin);
 		stringBuilder.append(" | ");
 		stringBuilder.append(lauCode);
+
 		return stringBuilder.toString();
 	}
 }

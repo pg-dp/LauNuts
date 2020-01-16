@@ -1,0 +1,401 @@
+NUTS 3 CODE,LAU CODE,LAU NAME NATIONAL,LAU NAME LATIN,CHANGE (Y/N),POPULATION,TOTAL AREA (m2),DEGURBA,DEG change compared to last year,COASTAL AREA (yes/no),COAST change compared to last year,CITY_ID,CITY_ID change compared to last year,CITY_NAME,GREATER_CITY_ID,GREATER_CITY_ID change compared to last year,GREATER_CITY_NAME,FUA_ID,FUA_ID change compared to last year,FUA_NAME
+UKC11,E06000001,Hartlepool,,No,93019,98441700,1,No,,,UK053C1,No,Hartlepool,,,,UK559L2,No,Middlesbrough
+UKC12,E06000002,Middlesbrough,,No,140639,54553700,1,No,,,UK559C1,No,Middlesbrough,,,,UK559L2,No,Middlesbrough
+UKC12,E06000003,Redcar and Cleveland,,No,136005,253890800,2,No,,,,,,,,,UK559L2,No,Middlesbrough
+UKC11,E06000004,Stockton-on-Tees,,No,196487,209731000,1,No,,,UK536C1,No,Stockton-on-Tees,,,,UK559L2,No,Middlesbrough
+UKC13,E06000005,Darlington,,No,106347,197475800,1,No,,,UK044C1,No,Darlington,,,,,,
+UKD71,E06000006,Halton,,No,127595,90321500,1,No,,,UK062C1,No,Halton,,,,,,
+UKD61,E06000007,Warrington,,No,209704,182383400,1,No,,,UK531C1,No,Warrington,,,,,,
+UKD41,E06000008,Blackburn with Darwen,,No,148772,137022000,1,No,,,UK557C1,No,Blackburn with Darwen,,,,UK557L1,No,Blackburn with Darwen
+UKD42,E06000009,Blackpool,,No,139870,43150800,1,No,,,UK553C1,No,Blackpool,UK553K1,No,Blackpool,UK553L1,No,Blackpool
+UKE11,E06000010,"Kingston upon Hull, City of",,No,260673,81497600,1,No,,,UK026C1,No,"Kingston upon Hull, City of",,,,UK026L1,No,Kingston upon Hull
+UKE12,E06000011,East Riding of Yorkshire,,No,338061,2494795600,2,No,,,,,,,,,UK026L1,No,Kingston upon Hull
+UKE13,E06000012,North East Lincolnshire,,No,159826,203553900,1,No,,,UK543C1,No,North East Lincolnshire,,,,,,
+UKE13,E06000013,North Lincolnshire,,No,171294,875684700,2,No,,,,,,,,,,,
+UKE21,E06000014,York,,No,208163,272014800,1,No,,,UK533C1,No,York,,,,,,
+UKF11,E06000015,Derby,,No,257034,78031100,1,No,,,UK518C1,No,Derby,,,,UK518L1,No,Derby
+UKF21,E06000016,Leicester,,No,353540,73342100,1,No,,,UK014C1,No,Leicester,UK014K1,No,Leicester,UK014L1,No,Leicester
+UKF22,E06000017,Rutland,,No,39474,393749000,3,No,,,,,,,,,,,
+UKF14,E06000018,Nottingham,,No,329209,74613500,1,No,,,UK029C1,No,Nottingham,UK029K1,No,Greater Nottingham,UK029L1,No,Greater Nottingham
+UKG11,E06000019,"Herefordshire, County of",,No,191041,2179709400,3,No,,,,,,,,,,,
+UKG21,E06000020,Telford and Wrekin,,No,175768,290313700,1,No,,,UK542C1,No,Telford and Wrekin,,,,,,
+UKG23,E06000021,Stoke-on-Trent,,No,255378,93448500,1,No,,,UK027C1,No,Stoke-on-Trent,UK027K1,No,Stoke-on-Trent,UK027L1,No,Stoke-on-Trent
+UKK12,E06000022,Bath and North East Somerset,,No,188678,351123400,1,No,,,UK031C1,No,Bath and North East Somerset,,,,,,
+UKK11,E06000023,"Bristol, City of",,No,459252,235328500,1,No,,,UK011C1,No,"Bristol, City of",,,,UK011L2,No,Bristol
+UKK12,E06000024,North Somerset,,No,212834,390815000,2,No,,,,,,,,,UK011L2,No,Bristol
+UKK12,E06000025,South Gloucestershire,,No,279027,536645600,2,No,,,,,,,,,UK011L2,No,Bristol
+UKK41,E06000026,Plymouth,,No,263070,84362900,1,No,,,UK516C1,No,Plymouth,,,,UK516L1,No,Plymouth
+UKK42,E06000027,Torbay,,No,135247,119467100,1,No,,,UK561C1,No,Torbay,,,,,,
+UKK21,E06000028,Bournemouth,,No,194752,47168200,1,No,,,UK539C1,No,Bournemouth,UK539K1,No,Bournemouth,UK539L1,No,Bournemouth
+UKK21,E06000029,Poole,,No,151270,74716200,1,No,,,UK555C1,No,Poole,UK539K1,No,Bournemouth,UK539L1,No,Bournemouth
+UKK14,E06000030,Swindon,,No,220363,230093200,1,No,,,UK535C1,No,Swindon,,,,,,
+UKH11,E06000031,Peterborough,,No,198914,343437900,1,No,,,UK545C1,No,Peterborough,,,,,,
+UKH21,E06000032,Luton,,No,214658,43352500,1,No,,,UK532C1,No,Luton,,,,,,
+UKH31,E06000033,Southend-on-Sea,,No,181808,67901100,1,No,,,UK541C1,No,Southend-on-Sea,UK541K1,No,Southend-on-Sea,UK001L3,No,London
+UKH32,E06000034,Thurrock,,No,170394,184318000,1,No,,,UK032C1,No,Thurrock,,,,UK001L3,No,London
+UKJ41,E06000035,Medway,,No,277616,269063700,1,No,,,UK513C1,No,Medway,,,,,,
+UKJ11,E06000036,Bracknell Forest,,No,120377,109384300,1,No,,,UK573C1,No,Bracknell Forest,,,,,,
+UKJ11,E06000037,West Berkshire,,No,158473,704169300,2,No,,,,,,,,,,,
+UKJ11,E06000038,Reading,,No,163075,40397900,1,No,,,UK552C1,No,Reading,UK552K1,No,Reading,UK552L0,No,Reading
+UKJ11,E06000039,Slough,,No,148768,32541900,1,No,,,UK567C1,No,Slough,,,,,,
+UKJ11,E06000040,Windsor and Maidenhead,,No,150140,198427200,2,No,,,,,,,,,,,
+UKJ11,E06000041,Wokingham,,No,164980,178965500,2,Yes,,,,,,UK552K1,No,Reading,UK552L0,No,Reading
+UKJ12,E06000042,Milton Keynes,,No,267521,308626700,1,No,,,UK525C1,No,Milton Keynes,,,,,,
+UKJ21,E06000043,Brighton and Hove,,No,288155,85376700,1,No,,,UK515C1,No,Brighton and Hove,UK515K1,No,Brighton and Hove,UK515L1,No,Brighton and Hove
+UKJ31,E06000044,Portsmouth,,No,214718,60144500,1,No,,,UK023C1,No,Portsmouth,UK023K1,No,Portsmouth,UK023L1,No,Portsmouth
+UKJ32,E06000045,Southampton,,No,252359,56385300,1,No,,,UK520C1,No,Southampton,UK520K1,No,Southampton,UK520L2,No,Southampton
+UKJ34,E06000046,Isle of Wight,,No,140984,394928700,2,No,,,,,,,,,,,
+UKC14,E06000047,County Durham,,No,523662,2232698600,2,No,,,,,,,,,,,
+UKD62,E06000049,Cheshire East,,No,378846,1166357600,2,No,,,,,,,,,UK008L3,No,Greater Manchester
+UKD63,E06000050,Cheshire West and Chester,,No,337986,941207100,1,No,,,UK568C2,No,Cheshire West and Chester,,,,UK568L1,No,Cheshire West and Chester
+UKG22,E06000051,Shropshire,,No,317459,3197275700,2,No,,,,,,,,,,,
+UKK30,E06000052,Cornwall,,No,561349,3613442300,2,No,,,,,,,,,,,
+UKK30,E06000053,Isles of Scilly,,No,2259,22849500,3,No,,,,,,,,,,,
+UKK15,E06000054,Wiltshire,,No,496043,3255338100,2,No,,,,,,,,,,,
+UKH24,E06000055,Bedford,,No,169912,476408300,1,No,,,UK549C1,No,Bedford,,,,,,
+UKH25,E06000056,Central Bedfordshire,,No,280030,715665400,2,No,,,,,,,,,,,
+UKC21,E06000057,Northumberland,,No,319030,5078180300,2,No,,,,,,,,,UK013L2,No,Tyneside conurbation
+UKJ13,E07000004,Aylesbury Vale,,No,196020,902753300,2,No,,,,,,,,,,,
+UKJ13,E07000005,Chiltern,,No,95355,196348300,2,No,,,,,,,,,UK001L3,No,London
+UKJ13,E07000006,South Bucks,,No,69785,141275500,2,No,,,,,,,,,UK001L3,No,London
+UKJ13,E07000007,Wycombe,,No,174758,324572000,1,No,,,UK540C1,No,Wycombe,,,,,,
+UKH12,E07000008,Cambridge,,No,124919,40698700,1,No,,,UK017C1,No,Cambridge,,,,UK017L2,No,Cambridge
+UKH12,E07000009,East Cambridgeshire,,No,88858,651720300,2,No,,,,,,,,,UK017L2,No,Cambridge
+UKH12,E07000010,Fenland,,No,100776,547355300,2,No,,,,,,,,,,,
+UKH12,E07000011,Huntingdonshire,,No,176979,912545700,2,No,,,,,,,,,,,
+UKH12,E07000012,South Cambridgeshire,,No,156705,901687200,3,No,,,,,,,,,UK017L2,No,Cambridge
+UKD11,E07000026,Allerdale,,No,97213,1320563400,2,No,,,,,,,,,,,
+UKD11,E07000027,Barrow-in-Furness,,No,67099,132063900,2,No,,,,,,,,,,,
+UKD12,E07000028,Carlisle,,No,108274,1054358300,1,No,,,UK575C1,No,Carlisle,,,,,,
+UKD11,E07000029,Copeland,,No,68689,775821300,2,No,,,,,,,,,,,
+UKD12,E07000030,Eden,,No,52779,2156474500,3,No,,,,,,,,,,,
+UKD12,E07000031,South Lakeland,,No,104321,1743191000,2,No,,,,,,,,,,,
+UKF13,E07000032,Amber Valley,,No,125898,265437900,2,No,,,,,,,,,UK518L1,No,Derby
+UKF12,E07000033,Bolsover,,No,79098,160334600,2,No,,,,,,,,,,,
+UKF12,E07000034,Chesterfield,,No,104579,66035200,1,No,,,UK047C1,No,Chesterfield,,,,,,
+UKF13,E07000035,Derbyshire Dales,,No,71849,795317800,3,No,,,,,,,,,,,
+UKF13,E07000036,Erewash,,No,115314,109630100,2,No,,,,,,,,,UK029L1,No,Greater Nottingham
+UKF13,E07000037,High Peak,,No,92063,540254100,2,No,,,,,,,,,UK008L3,No,Greater Manchester
+UKF12,E07000038,North East Derbyshire,,No,100780,275623500,2,No,,,,,,,,,UK010L3,No,Sheffield
+UKF13,E07000039,South Derbyshire,,No,102385,338129000,2,No,,,,,,,,,UK518L1,No,Derby
+UKK43,E07000040,East Devon,,No,142265,823704400,2,No,,,,,,,,,UK018L3,No,Exeter
+UKK43,E07000041,Exeter,,No,128916,47888500,1,No,,,UK018C1,No,Exeter,,,,UK018L3,No,Exeter
+UKK43,E07000042,Mid Devon,,No,80623,912897800,3,No,,,,,,,,,UK018L3,No,Exeter
+UKK43,E07000043,North Devon,,No,95440,1105045200,2,No,,,,,,,,,,,
+UKK43,E07000044,South Hams,,No,85340,905248000,3,No,,,,,,,,,UK516L1,No,Plymouth
+UKK43,E07000045,Teignbridge,,No,131437,681008100,2,No,,,,,,,,,UK018L3,No,Exeter
+UKK43,E07000046,Torridge,,No,67821,995593300,2,No,,,,,,,,,,,
+UKK43,E07000047,West Devon,,No,55329,1164717800,3,No,,,,,,,,,UK516L1,No,Plymouth
+UKK22,E07000048,Christchurch,,No,49616,51695500,2,No,,,,,,,,,UK539L1,No,Bournemouth
+UKK22,E07000049,East Dorset,,No,89384,354417900,2,No,,,,,,,,,UK539L1,No,Bournemouth
+UKK22,E07000050,North Dorset,,No,71096,609217800,2,No,,,,,,,,,,,
+UKK22,E07000051,Purbeck,,No,46756,427583900,2,No,,,,,,,,,UK539L1,No,Bournemouth
+UKK22,E07000052,West Dorset,,No,102064,1087062100,3,No,,,,,,,,,,,
+UKK22,E07000053,Weymouth and Portland,,No,65751,42996200,2,No,,,,,,,,,,,
+UKJ22,E07000061,Eastbourne,,No,103251,45529000,1,No,,,UK055C1,No,Eastbourne,,,,,,
+UKJ22,E07000062,Hastings,,No,92813,30831700,1,No,,,UK056C1,No,Hastings,,,,UK056L1,No,Hastings
+UKJ22,E07000063,Lewes,,No,102257,294389300,2,No,,,,,,,,,UK515L1,No,Brighton and Hove
+UKJ22,E07000064,Rother,,No,94997,518153300,2,No,,,,,,,,,UK056L1,No,Hastings
+UKJ22,E07000065,Wealden,,No,158941,836265400,2,No,,,,,,,,,,,
+UKH37,E07000066,Basildon,,No,184479,110445900,1,No,,,UK538C1,No,Basildon,,,,UK001L3,No,London
+UKH34,E07000067,Braintree,,No,151677,611708100,2,No,,,,,,,,,,,
+UKH36,E07000068,Brentwood,,No,76575,153124100,2,No,,,,,,,,,UK001L3,No,London
+UKH37,E07000069,Castle Point,,No,89814,63698400,2,Yes,,,,,,UK541K1,No,Southend-on-Sea,UK001L3,No,London
+UKH36,E07000070,Chelmsford,,No,176194,342997300,1,No,,,UK544C1,No,Chelmsford,,,,UK001L3,No,London
+UKH34,E07000071,Colchester,,No,190098,346713300,1,No,,,UK546C1,No,Colchester,,,,UK546L1,No,Colchester
+UKH35,E07000072,Epping Forest,,No,130576,338984200,2,No,,,,,,,,,UK001L3,No,London
+UKH35,E07000073,Harlow,,No,86191,30537900,1,No,,,UK061C1,No,Harlow,,,,UK001L3,No,London
+UKH36,E07000074,Maldon,,No,63975,426688600,2,No,,,,,,,,,,,
+UKH37,E07000075,Rochford,,No,86209,263411100,2,No,,,,,,,,,UK001L3,No,London
+UKH34,E07000076,Tendring,,No,144705,365817900,2,No,,,,,,,,,UK546L1,No,Colchester
+UKH35,E07000077,Uttlesford,,No,87684,641182800,3,No,,,,,,,,,UK001L3,No,London
+UKK13,E07000078,Cheltenham,,No,117128,46596200,1,No,,,UK571C1,No,Cheltenham,,,,UK571L1,No,Cheltenham
+UKK13,E07000079,Cotswold,,No,87509,1164524200,3,No,,,,,,,,,,,
+UKK13,E07000080,Forest of Dean,,No,85957,561432400,3,No,,,,,,,,,,,
+UKK13,E07000081,Gloucester,,No,129083,40826600,1,No,,,UK572C1,No,Gloucester,,,,,,
+UKK13,E07000082,Stroud,,No,118130,476173000,2,No,,,,,,,,,,,
+UKK13,E07000083,Tewkesbury,,No,90332,414976000,2,No,,,,,,,,,UK571L1,No,Cheltenham
+UKJ37,E07000084,Basingstoke and Deane,,No,175337,633817200,1,No,,,UK548C1,No,Basingstoke and Deane,,,,,,
+UKJ36,E07000085,East Hampshire,,No,119392,514432100,2,No,,,,,,,,,,,
+UKJ35,E07000086,Eastleigh,,No,130498,85268000,1,No,,,UK579C1,No,Eastleigh,UK520K1,No,Southampton,UK520L2,No,Southampton
+UKJ35,E07000087,Fareham,,No,116219,77799700,2,Yes,,,,,,UK023K1,No,Portsmouth,UK023L1,No,Portsmouth
+UKJ35,E07000088,Gosport,,No,85509,27577800,1,No,,,UK578C1,No,Gosport,UK023K1,No,Portsmouth,UK023L1,No,Portsmouth
+UKJ37,E07000089,Hart,,No,95465,215265000,2,No,,,,,,,,,,,
+UKJ35,E07000090,Havant,,No,125065,79099600,2,Yes,,,,,,UK023K1,No,Portsmouth,UK023L1,No,Portsmouth
+UKJ36,E07000091,New Forest,,No,179590,776909300,2,No,,,,,,,,,UK520L2,No,Southampton
+UKJ37,E07000092,Rushmoor,,No,95817,39045000,1,No,,,UK580C1,No,Rushmoor,UK580K1,No,Rushmoor,,,
+UKJ36,E07000093,Test Valley,,No,123957,627622000,2,No,,,,,,,,,UK520L2,No,Southampton
+UKJ36,E07000094,Winchester,,No,123879,661071000,2,No,,,,,,,,,,,
+UKH23,E07000095,Broxbourne,,No,96762,51442200,2,No,,,,,,,,,UK001L3,No,London
+UKH23,E07000096,Dacorum,,No,153316,212476500,1,No,,,UK556C1,No,Dacorum,,,,,,
+UKH23,E07000098,Hertsmere,,No,104031,101128100,2,No,,,,,,,,,UK001L3,No,London
+UKH23,E07000099,North Hertfordshire,,No,133321,375382100,2,No,,,,,,,,,,,
+UKH23,E07000102,Three Rivers,,No,92641,88824100,2,No,,,,,,,,,UK001L3,No,London
+UKH23,E07000103,Watford,,No,96675,21430400,1,No,,,UK577C1,No,Watford,,,,UK001L3,No,London
+UKJ45,E07000105,Ashford,,No,127527,580617400,1,No,,,UK041C1,No,Ashford,,,,,,
+UKJ44,E07000106,Canterbury,,No,164100,320889400,2,No,,,,,,,,,,,
+UKJ43,E07000107,Dartford,,No,107516,76310400,2,No,,,,,,,,,UK001L3,No,London
+UKJ44,E07000108,Dover,,No,115803,320827000,2,No,,,,,,,,,,,
+UKJ43,E07000109,Gravesham,,No,106121,104958600,1,No,,,UK020C1,No,Gravesham,,,,UK001L3,No,London
+UKJ45,E07000110,Maidstone,,No,167730,393350700,1,No,,,UK554C1,No,Maidstone,,,,,,
+UKJ46,E07000111,Sevenoaks,,No,119429,370347000,2,No,,,,,,,,,UK001L3,No,London
+UKJ44,E07000112,Shepway,,No,111427,365515200,2,No,,,,,,,,,,,
+UKJ43,E07000113,Swale,,No,146694,422095600,2,No,,,,,,,,,,,
+UKJ44,E07000114,Thanet,,No,141337,112339000,1,No,,,UK034C1,No,Thanet,,,,,,
+UKJ46,E07000115,Tonbridge and Malling,,No,128891,240973400,2,No,,,,,,,,,UK001L3,No,London
+UKJ46,E07000116,Tunbridge Wells,,No,118061,331328700,1,No,,,UK040C1,No,Tunbridge Wells,,,,UK001L3,No,London
+UKD46,E07000117,Burnley,,No,87705,110684000,1,No,,,UK050C1,No,Burnley,,,,UK050L1,No,Burnley
+UKD47,E07000118,Chorley,,No,115772,202905700,2,No,,,,,,,,,,,
+UKD45,E07000119,Fylde,,No,78863,182633400,2,No,,,,,,,,,UK553L1,No,Blackpool
+UKD46,E07000120,Hyndburn,,No,80410,72997400,1,No,,,UK057C1,No,Hyndburn,,,,UK557L1,No,Blackburn with Darwen
+UKD44,E07000121,Lancaster,,No,142487,654210100,2,No,,,,,,,,,,,
+UKD46,E07000122,Pendle,,No,90696,169380100,2,No,,,,,,,,,UK050L1,No,Burnley
+UKD45,E07000123,Preston,,No,141346,142944800,1,No,,,UK562C1,No,Preston,UK562K1,No,Preston,UK562L2,No,Preston
+UKD45,E07000124,Ribble Valley,,No,59504,584471500,2,No,,,,,,,,,UK557L1,No,Blackburn with Darwen
+UKD46,E07000125,Rossendale,,No,70365,138041200,2,No,,,,,,,,,UK008L3,No,Greater Manchester
+UKD45,E07000126,South Ribble,,No,110400,114614900,2,Yes,,,,,,UK562K1,No,Preston,UK562L2,No,Preston
+UKD47,E07000127,West Lancashire,,No,113881,381095200,2,No,,,,,,,,,UK006L3,No,Liverpool
+UKD44,E07000128,Wyre,,No,110426,329030000,2,Yes,,,,,,UK553K1,No,Blackpool,UK553L1,No,Blackpool
+UKF22,E07000129,Blaby,,No,98977,130468600,2,Yes,,,,,,UK014K1,No,Leicester,UK014L1,No,Leicester
+UKF22,E07000130,Charnwood,,No,180387,279042700,2,No,,,,,,,,,UK014L1,No,Leicester
+UKF22,E07000131,Harborough,,No,91461,592692300,2,No,,,,,,,,,UK014L1,No,Leicester
+UKF22,E07000132,Hinckley and Bosworth,,No,111370,297349100,2,No,,,,,,,,,UK014L1,No,Leicester
+UKF22,E07000133,Melton,,No,50873,481380500,2,No,,,,,,,,,,,
+UKF22,E07000134,North West Leicestershire,,No,100109,279328000,2,No,,,,,,,,,,,
+UKF22,E07000135,Oadby and Wigston,,No,57035,23526100,2,Yes,,,,,,UK014K1,No,Leicester,UK014L1,No,Leicester
+UKF30,E07000136,Boston,,No,68488,397792700,2,No,,,,,,,,,,,
+UKF30,E07000137,East Lindsey,,No,139718,1831072700,3,No,,,,,,,,,,,
+UKF30,E07000138,Lincoln,,No,98438,35690100,1,No,,,UK019C1,No,Lincoln,,,,UK019L3,No,Lincoln
+UKF30,E07000139,North Kesteven,,No,115230,922471400,2,No,,,,,,,,,UK019L3,No,Lincoln
+UKF30,E07000140,South Holland,,No,93295,815503700,2,No,,,,,,,,,,,
+UKF30,E07000141,South Kesteven,,No,141662,942586100,2,No,,,,,,,,,,,
+UKF30,E07000142,West Lindsey,,No,94340,1157652200,3,No,,,,,,,,,UK019L3,No,Lincoln
+UKH17,E07000143,Breckland,,No,138602,1305116700,2,No,,,,,,,,,,,
+UKH15,E07000144,Broadland,,No,128535,553244400,2,No,,,,,,,,,UK566L1,No,Norwich
+UKH15,E07000145,Great Yarmouth,,No,99417,182472000,1,No,,,UK051C1,No,Great Yarmouth,,,,,,
+UKH16,E07000146,King's Lynn and West Norfolk,,No,151945,1527658500,3,No,,,,,,,,,,,
+UKH16,E07000147,North Norfolk,,No,104067,990397900,3,No,,,,,,,,,,,
+UKH15,E07000148,Norwich,,No,140353,40554100,1,No,,,UK566C1,No,Norwich,,,,UK566L1,No,Norwich
+UKH17,E07000149,South Norfolk,,No,135471,908906600,3,No,,,,,,,,,UK566L1,No,Norwich
+UKF25,E07000150,Corby,,No,69540,80280900,1,No,,,UK582C1,No,Corby,,,,,,
+UKF24,E07000151,Daventry,,No,82638,665600500,3,No,,,,,,,,,UK528L1,No,Northampton
+UKF25,E07000152,East Northamptonshire,,No,93135,509787200,2,No,,,,,,,,,,,
+UKF25,E07000153,Kettering,,No,100252,233490000,1,No,,,UK583C1,No,Kettering,,,,,,
+UKF24,E07000154,Northampton,,No,225656,80771800,1,No,,,UK528C1,No,Northampton,,,,UK528L1,No,Northampton
+UKF24,E07000155,South Northamptonshire,,No,91074,634023200,3,No,,,,,,,,,UK528L1,No,Northampton
+UKF25,E07000156,Wellingborough,,No,78914,163036300,2,No,,,,,,,,,UK528L1,No,Northampton
+UKE22,E07000163,Craven,,No,56604,1178807400,3,No,,,,,,,,,UK003L2,No,Leeds
+UKE22,E07000164,Hambleton,,No,90718,1311228200,3,No,,,,,,,,,,,
+UKE22,E07000165,Harrogate,,No,160044,1309127300,2,No,,,,,,,,,UK003L2,No,Leeds
+UKE22,E07000166,Richmondshire,,No,53699,1318707000,3,No,,,,,,,,,,,
+UKE22,E07000167,Ryedale,,No,54311,1506593700,3,No,,,,,,,,,,,
+UKE22,E07000168,Scarborough,,No,108370,826253500,2,No,,,,,,,,,,,
+UKE22,E07000169,Selby,,No,87887,602223300,2,No,,,,,,,,,UK003L2,No,Leeds
+UKF15,E07000170,Ashfield,,No,126164,109558200,2,No,,,,,,,,,UK029L1,No,Greater Nottingham
+UKF15,E07000171,Bassetlaw,,No,116304,639492900,2,No,,,,,,,,,,,
+UKF16,E07000172,Broxtowe,,No,112718,80098900,2,Yes,,,,,,UK029K1,No,Greater Nottingham,UK029L1,No,Greater Nottingham
+UKF16,E07000173,Gedling,,No,117128,119981600,2,Yes,,,,,,UK029K1,No,Greater Nottingham,UK029L1,No,Greater Nottingham
+UKF15,E07000174,Mansfield,,No,108576,76697000,1,No,,,UK046C1,No,Mansfield,,,,,,
+UKF15,E07000175,Newark and Sherwood,,No,120965,651835500,2,No,,,,,,,,,,,
+UKF16,E07000176,Rushcliffe,,No,115996,409231700,2,Yes,,,,,,UK029K1,No,Greater Nottingham,UK029L1,No,Greater Nottingham
+UKJ14,E07000177,Cherwell,,No,147602,588741200,2,No,,,,,,,,,UK560L1,No,Oxford
+UKJ14,E07000178,Oxford,,No,154582,45602800,1,No,,,UK560C1,No,Oxford,,,,UK560L1,No,Oxford
+UKJ14,E07000179,South Oxfordshire,,No,139767,678537200,2,No,,,,,,,,,,,
+UKJ14,E07000180,Vale of White Horse,,No,131227,578644500,2,No,,,,,,,,,UK560L1,No,Oxford
+UKJ14,E07000181,West Oxfordshire,,No,109266,714421900,2,No,,,,,,,,,UK560L1,No,Oxford
+UKK23,E07000187,Mendip,,No,113513,739435600,2,No,,,,,,,,,,,
+UKK23,E07000188,Sedgemoor,,No,122178,605874100,2,No,,,,,,,,,,,
+UKK23,E07000189,South Somerset,,No,167216,959058100,2,No,,,,,,,,,,,
+UKK23,E07000190,Taunton Deane,,No,117423,462503100,2,No,,,,,,,,,,,
+UKK23,E07000191,West Somerset,,No,34865,746983400,2,No,,,,,,,,,,,
+UKG24,E07000192,Cannock Chase,,No,99126,78882500,1,No,,,UK054C1,No,Cannock Chase,,,,UK002L3,No,West Midlands urban area
+UKG24,E07000193,East Staffordshire,,No,117552,389985300,1,No,,,UK043C1,No,East Staffordshire,,,,,,
+UKG24,E07000194,Lichfield,,No,103507,331294400,2,No,,,,,,,,,UK002L3,No,West Midlands urban area
+UKG24,E07000195,Newcastle-under-Lyme,,No,128963,210957300,1,No,,,UK565C1,No,Newcastle-under-Lyme,UK027K1,No,Stoke-on-Trent,UK027L1,No,Stoke-on-Trent
+UKG24,E07000196,South Staffordshire,,No,111890,407322300,2,No,,,,,,,,,UK002L3,No,West Midlands urban area
+UKG24,E07000197,Stafford,,No,134764,598172100,2,No,,,,,,,,,,,
+UKG24,E07000198,Staffordshire Moorlands,,No,98496,575849800,2,No,,,,,,,,,UK027L1,No,Stoke-on-Trent
+UKG24,E07000199,Tamworth,,No,76527,30850800,1,No,,,UK060C1,No,Tamworth,,,,UK002L3,No,West Midlands urban area
+UKH14,E07000200,Babergh,,No,90794,612041200,3,No,,,,,,,,,UK569L2,No,Ipswich
+UKH14,E07000201,Forest Heath,,No,65523,377710900,2,No,,,,,,,,,,,
+UKH14,E07000202,Ipswich,,No,138480,40300200,1,No,,,UK569C1,No,Ipswich,,,,UK569L2,No,Ipswich
+UKH14,E07000203,Mid Suffolk,,No,101543,871070700,3,No,,,,,,,,,,,
+UKH14,E07000204,St Edmundsbury,,No,113725,656964900,2,No,,,,,,,,,,,
+UKH14,E07000205,Suffolk Coastal,,No,129016,920700400,2,No,,,,,,,,,UK569L2,No,Ipswich
+UKH14,E07000206,Waveney,,No,117897,374786400,1,No,,,UK038C1,No,Waveney,,,,,,
+UKJ25,E07000207,Elmbridge,,No,136379,96334300,2,No,,,,,,,,,UK001L3,No,London
+UKJ26,E07000208,Epsom and Ewell,,No,79451,34079400,2,No,,,,,,,,,UK001L3,No,London
+UKJ25,E07000209,Guildford,,No,147777,270931100,1,No,,,UK033C1,No,Guildford,,,,UK033L1,No,Guildford
+UKJ26,E07000210,Mole Valley,,No,87128,258321100,2,No,,,,,,,,,UK001L3,No,London
+UKJ26,E07000211,Reigate and Banstead,,No,146383,129143900,2,No,,,,,,,,,UK001L3,No,London
+UKJ25,E07000212,Runnymede,,No,86882,78040700,2,No,,,,,,,,,,,
+UKJ25,E07000213,Spelthorne,,No,99120,51161400,2,No,,,,,,,,,UK001L3,No,London
+UKJ25,E07000214,Surrey Heath,,No,88765,95092900,2,Yes,,,,,,UK580K1,No,Rushmoor,,,
+UKJ26,E07000215,Tandridge,,No,87297,248194800,2,No,,,,,,,,,UK001L3,No,London
+UKJ25,E07000216,Waverley,,No,125010,345170100,2,No,,,,,,,,,UK033L1,No,Guildford
+UKJ25,E07000217,Woking,,No,101129,63603400,1,No,,,UK052C1,No,Woking,,,,UK001L3,No,London
+UKG13,E07000218,North Warwickshire,,No,64069,284263500,2,No,,,,,,,,,UK002L3,No,West Midlands urban area
+UKG13,E07000219,Nuneaton and Bedworth,,No,128659,78950400,1,No,,,UK035C1,No,Nuneaton and Bedworth,,,,UK025L3,No,Coventry
+UKG13,E07000220,Rugby,,No,106350,353557300,1,No,,,UK581C1,No,Rugby,,,,UK025L3,No,Coventry
+UKG13,E07000221,Stratford-on-Avon,,No,125202,977869400,3,No,,,,,,,,,,,
+UKG13,E07000222,Warwick,,No,140282,282882100,1,No,,,UK564C1,No,Warwick,,,,UK025L3,No,Coventry
+UKJ27,E07000223,Adur,,No,63721,43563800,2,Yes,,,,,,UK515K1,No,Brighton and Hove,UK515L1,No,Brighton and Hove
+UKJ27,E07000224,Arun,,No,158657,224280700,2,No,,,,,,,,,,,
+UKJ27,E07000225,Chichester,,No,120192,811873500,2,No,,,,,,,,,,,
+UKJ28,E07000226,Crawley,,No,111664,44971100,1,No,,,UK576C1,No,Crawley,,,,,,
+UKJ28,E07000227,Horsham,,No,140142,530962200,2,No,,,,,,,,,,,
+UKJ28,E07000228,Mid Sussex,,No,148345,334029400,2,No,,,,,,,,,,,
+UKJ27,E07000229,Worthing,,No,109632,33782600,1,No,,,UK045C1,No,Worthing,,,,,,
+UKG12,E07000234,Bromsgrove,,No,97594,216968400,2,No,,,,,,,,,UK002L3,No,West Midlands urban area
+UKG12,E07000235,Malvern Hills,,No,77165,577071000,2,No,,,,,,,,,UK024L1,No,Worcester
+UKG12,E07000236,Redditch,,No,85204,54250900,1,No,,,UK059C1,No,Redditch,,,,,,
+UKG12,E07000237,Worcester,,No,102314,33278200,1,No,,,UK024C1,No,Worcester,,,,UK024L1,No,Worcester
+UKG12,E07000238,Wychavon,,No,125378,663541800,2,No,,,,,,,,,,,
+UKG12,E07000239,Wyre Forest,,No,100715,195403800,2,No,,,,,,,,,,,
+UKH23,E07000240,St Albans,,No,147095,161205900,1,No,,,UK563C1,No,St Albans,,,,UK001L3,No,London
+UKH23,E07000241,Welwyn Hatfield,,No,122274,129536800,2,No,,,,,,,,,UK001L3,No,London
+UKH23,E07000242,East Hertfordshire,,No,147080,475669600,2,No,,,,,,,,,UK001L3,No,London
+UKH23,E07000243,Stevenage,,No,87739,25969100,1,No,,,UK021C1,No,Stevenage,,,,,,
+UKD36,E08000001,Bolton,,No,284813,139792300,1,No,,,UK511C1,No,Bolton,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD37,E08000002,Bury,,No,189628,99460100,1,No,,,UK534C1,No,Bury,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD33,E08000003,Manchester,,No,545501,115648600,1,No,,,UK008C1,No,Manchester,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD37,E08000004,Oldham,,No,233759,142345000,1,No,,,UK521C1,No,Oldham,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD37,E08000005,Rochdale,,No,218459,158128300,1,No,,,UK526C1,No,Rochdale,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD34,E08000006,Salford,,No,251332,97197400,1,No,,,UK522C1,No,Salford,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD35,E08000007,Stockport,,No,291045,126040200,1,No,,,UK507C1,No,Stockport,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD35,E08000008,Tameside,,No,224119,103154300,1,No,,,UK523C1,No,Tameside,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD34,E08000009,Trafford,,No,235493,106044700,1,No,,,UK524C1,No,Trafford,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD36,E08000010,Wigan,,No,324650,188171200,1,No,,,UK505C1,No,Wigan,UK008K1,No,Greater Manchester,UK008L3,No,Greater Manchester
+UKD71,E08000011,Knowsley,,No,148560,86500200,2,Yes,,,,,,UK006K2,No,Liverpool,UK006L3,No,Liverpool
+UKD72,E08000012,Liverpool,,No,491549,133534000,1,No,,,UK006C1,No,Liverpool,UK006K2,No,Liverpool,UK006L3,No,Liverpool
+UKD71,E08000013,St. Helens,,No,179331,136358700,1,No,,,UK537C1,No,St. Helens,UK006K2,No,Liverpool,UK006L3,No,Liverpool
+UKD73,E08000014,Sefton,,No,274589,204779600,1,No,,,UK508C1,No,Sefton,UK006K2,No,Liverpool,UK006L3,No,Liverpool
+UKD74,E08000015,Wirral,,No,322796,256399100,1,No,,,UK030C1,No,Wirral,UK006K2,No,Liverpool,UK006L3,No,Liverpool
+UKE31,E08000016,Barnsley,,No,243341,329077700,1,No,,,UK519C1,No,Barnsley,,,,UK010L3,No,Sheffield
+UKE31,E08000017,Doncaster,,No,308940,568551000,1,No,,,UK506C1,No,Doncaster,,,,,,
+UKE31,E08000018,Rotherham,,No,263375,286534300,1,No,,,UK514C1,No,Rotherham,,,,UK010L3,No,Sheffield
+UKE32,E08000019,Sheffield,,No,577789,367930200,1,No,,,UK010C1,No,Sheffield,,,,UK010L3,No,Sheffield
+UKC22,E08000021,Newcastle upon Tyne,,No,295842,115117800,1,No,,,UK013C1,No,Newcastle upon Tyne,UK013K1,No,Tyneside conurbation,UK013L2,No,Tyneside conurbation
+UKC22,E08000022,North Tyneside,,No,204473,84819300,1,No,,,UK529C1,No,North Tyneside,UK013K1,No,Tyneside conurbation,UK013L2,No,Tyneside conurbation
+UKC22,E08000023,South Tyneside,,No,149555,67108500,1,No,,,UK547C1,No,South Tyneside,UK013K1,No,Tyneside conurbation,UK013L2,No,Tyneside conurbation
+UKC23,E08000024,Sunderland,,No,277249,139630200,1,No,,,UK510C1,No,Sunderland,,,,,,
+UKG31,E08000025,Birmingham,,No,1137123,267791300,1,No,,,UK002C1,No,Birmingham,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKG33,E08000026,Coventry,,No,360149,98639000,1,No,,,UK025C1,No,Coventry,,,,UK025L3,No,Coventry
+UKG36,E08000027,Dudley,,No,319419,97958400,1,No,,,UK504C1,No,Dudley,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKG37,E08000028,Sandwell,,No,325460,85558900,1,No,,,UK509C1,No,Sandwell,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKG32,E08000029,Solihull,,No,213933,178282100,1,No,,,UK527C1,No,Solihull,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKG38,E08000030,Walsall,,No,281293,103973400,1,No,,,UK512C1,No,Walsall,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKG39,E08000031,Wolverhampton,,No,259926,69436500,1,No,,,UK028C1,No,Wolverhampton,UK002K1,No,West Midlands urban area,UK002L3,No,West Midlands urban area
+UKE41,E08000032,Bradford,,No,534800,366419800,1,No,,,UK005C1,No,Bradford,,,,UK003L2,No,Leeds
+UKE44,E08000033,Calderdale,,No,209454,363960800,2,No,,,,,,,,,UK003L2,No,Leeds
+UKE44,E08000034,Kirklees,,No,437145,408551600,1,No,,,UK501C1,No,Kirklees,,,,UK003L2,No,Leeds
+UKE42,E08000035,Leeds,,No,784846,551706500,1,No,,,UK003C1,No,Leeds,,,,UK003L2,No,Leeds
+UKE45,E08000036,Wakefield,,No,340790,338619800,1,No,,,UK503C1,No,Wakefield,,,,UK003L2,No,Leeds
+UKC22,E08000037,Gateshead,,No,202419,144079700,1,No,,,UK530C1,No,Gateshead,UK013K1,No,Tyneside conurbation,UK013L2,No,Tyneside conurbation
+UKI31,E09000001,City of London,,No,7654,3149600,1,No,,,UK101C1,No,City of London,UK001K2,No,London,UK001L3,No,London
+UKI52,E09000002,Barking and Dagenham,,No,210711,37799200,1,No,,,UK102C1,No,Barking and Dagenham,UK001K2,No,London,UK001L3,No,London
+UKI71,E09000003,Barnet,,No,387803,86748300,1,No,,,UK103C1,No,Barnet,UK001K2,No,London,UK001L3,No,London
+UKI51,E09000004,Bexley,,No,246124,64286500,1,No,,,UK104C1,No,Bexley,UK001K2,No,London,UK001L3,No,London
+UKI72,E09000005,Brent,,No,329102,43232500,1,No,,,UK105C1,No,Brent,UK001K2,No,London,UK001L3,No,London
+UKI61,E09000006,Bromley,,No,329391,150134700,1,No,,,UK106C1,No,Bromley,UK001K2,No,London,UK001L3,No,London
+UKI31,E09000007,Camden,,No,253361,21789500,1,No,,,UK107C1,No,Camden,UK001K2,No,London,UK001L3,No,London
+UKI62,E09000008,Croydon,,No,384837,86494700,1,No,,,UK108C1,No,Croydon,UK001K2,No,London,UK001L3,No,London
+UKI73,E09000009,Ealing,,No,342736,55544700,1,No,,,UK109C1,No,Ealing,UK001K2,No,London,UK001L3,No,London
+UKI54,E09000010,Enfield,,No,332705,82200200,1,No,,,UK110C1,No,Enfield,UK001K2,No,London,UK001L3,No,London
+UKI51,E09000011,Greenwich,,No,282849,50441800,1,No,,,UK111C1,No,Greenwich,UK001K2,No,London,UK001L3,No,London
+UKI41,E09000012,Hackney,,No,275929,19049200,1,No,,,UK112C1,No,Hackney,UK001K2,No,London,UK001L3,No,London
+UKI33,E09000013,Hammersmith and Fulham,,No,182998,17154100,1,No,,,UK113C1,No,Hammersmith and Fulham,UK001K2,No,London,UK001L3,No,London
+UKI43,E09000014,Haringey,,No,271224,29598300,1,No,,,UK114C1,No,Haringey,UK001K2,No,London,UK001L3,No,London
+UKI74,E09000015,Harrow,,No,248880,50463400,1,No,,,UK115C1,No,Harrow,UK001K2,No,London,UK001L3,No,London
+UKI52,E09000016,Havering,,No,256039,114457300,1,No,,,UK116C1,No,Havering,UK001K2,No,London,UK001L3,No,London
+UKI74,E09000017,Hillingdon,,No,302343,115700200,1,No,,,UK117C1,No,Hillingdon,UK001K2,No,London,UK001L3,No,London
+UKI75,E09000018,Hounslow,,No,269100,56585400,1,No,,,UK118C1,No,Hounslow,UK001K2,No,London,UK001L3,No,London
+UKI43,E09000019,Islington,,No,235000,14856500,1,No,,,UK119C1,No,Islington,UK001K2,No,London,UK001L3,No,London
+UKI33,E09000020,Kensington and Chelsea,,No,155741,12383700,1,No,,,UK120C1,No,Kensington and Chelsea,UK001K2,No,London,UK001L3,No,London
+UKI63,E09000021,Kingston upon Thames,,No,174609,37261200,1,No,,,UK121C1,No,Kingston upon Thames,UK001K2,No,London,UK001L3,No,London
+UKI45,E09000022,Lambeth,,No,324048,27249300,1,No,,,UK122C1,No,Lambeth,UK001K2,No,London,UK001L3,No,London
+UKI44,E09000023,Lewisham,,No,301307,35316700,1,No,,,UK123C1,No,Lewisham,UK001K2,No,London,UK001L3,No,London
+UKI63,E09000024,Merton,,No,206052,37624800,1,No,,,UK124C1,No,Merton,UK001K2,No,London,UK001L3,No,London
+UKI41,E09000025,Newham,,No,347996,38578100,1,No,,,UK125C1,No,Newham,UK001K2,No,London,UK001L3,No,London
+UKI53,E09000026,Redbridge,,No,301785,56442100,1,No,,,UK126C1,No,Redbridge,UK001K2,No,London,UK001L3,No,London
+UKI75,E09000027,Richmond upon Thames,,No,195680,58761400,1,No,,,UK127C1,No,Richmond upon Thames,UK001K2,No,London,UK001L3,No,London
+UKI44,E09000028,Southwark,,No,314232,29913400,1,No,,,UK128C1,No,Southwark,UK001K2,No,London,UK001L3,No,London
+UKI63,E09000029,Sutton,,No,203243,43847100,1,No,,,UK129C1,No,Sutton,UK001K2,No,London,UK001L3,No,London
+UKI42,E09000030,Tower Hamlets,,No,307964,21575000,1,No,,,UK130C1,No,Tower Hamlets,UK001K2,No,London,UK001L3,No,London
+UKI53,E09000031,Waltham Forest,,No,275505,38807800,1,No,,,UK131C1,No,Waltham Forest,UK001K2,No,London,UK001L3,No,London
+UKI34,E09000032,Wandsworth,,No,323257,35220200,1,No,,,UK132C1,No,Wandsworth,UK001K2,No,London,UK001L3,No,London
+UKI32,E09000033,Westminster,,No,244796,22030100,1,No,,,UK133C1,No,Westminster,UK001K2,No,London,UK001L3,No,London
+UKN0D,N09000001,Antrim and Newtownabbey,,Yes,141697,728373500,2,No,,,,,,,,,UK012L2,No,Belfast Urban Area
+UKN07,N09000002,"Armagh City, Banbridge and Craigavon",,Yes,211898,1437432200,2,Yes,,,,,,,,,,,
+UKN06,N09000003,Belfast,,Yes,340220,137751600,1,No,,,UK012C2,Yes,Belfast,UK012K1,No,Greater Belfast,UK012L2,No,Belfast Urban Area
+UKN0C,N09000004,Causeway Coast and Glens,,Yes,143920,1986058500,3,No,,,,,,,,,,,
+UKN0A,N09000005,Derry City and Strabane,,Yes,150497,1251561700,1,No,,,UK586C1,Yes,Derry & Strabane Local Government District,,,,,,
+UKN0G,N09000006,Fermanagh and Omagh,,Yes,116289,3012884500,3,No,,,,,,,,,,,
+UKN0E,N09000007,Lisburn and Castlereagh,,Yes,142640,510566900,2,Yes,,,,,,UK012K1,No,Greater Belfast,UK012L2,No,Belfast Urban Area
+UKN0F,N09000008,Mid and East Antrim,,Yes,138152,1061633100,2,No,,,,,,,,,,,
+UKN0B,N09000009,Mid Ulster,,Yes,146427,1957795200,3,Yes,,,,,,,,,,,
+UKN08,N09000010,"Newry, Mourne and Down",,Yes,178996,1682760000,3,No,,,,,,,,,,,
+UKN09,N09000011,Ards and North Down,,Yes,160098,566614500,2,No,,,,,,,,,UK012L2,No,Belfast Urban Area
+UKM71,S30000001,Angus,,No,116280,2204238300,2,No,,,,,,,,,UK550L1,No,Dundee
+UKM71,S30000002,Dundee City,,No,148710,62222900,1,No,,,UK550C1,No,Dundee City,,,,UK550L1,No,Dundee
+UKM72,S30000003,Clackmannanshire,,No,51450,163921200,2,No,,,,,,,,,,,
+UKM72,S30000004,Fife,,No,371410,1373921100,2,No,,,,,,,,,,,
+UKM73,S30000005,East Lothian,,No,104840,700937700,2,No,,,,,,,,,UK007L1,No,Edinburgh
+UKM73,S30000006,Midlothian,,No,90090,355275200,2,No,,,,,,,,,UK007L1,No,Edinburgh
+UKM91,S30000007,Scottish Borders,,No,115020,4742657000,3,No,,,,,,,,,,,
+UKM75,S30000008,City of Edinburgh,,Yes,513210,273044300,1,No,,,UK007C1,No,City of Edinburgh,,,,UK007L1,No,Edinburgh
+UKM76,S30000009,Falkirk,,No,160130,314931400,1,No,,,UK551C1,No,Falkirk,,,,,,
+UKM77,S30000010,Perth and Kinross,,Yes,151100,5418909100,2,No,,,,,,,,,,,
+UKM77,S30000011,Stirling,,No,94000,2254811700,2,No,,,,,,,,,,,
+UKM78,S30000012,West Lothian,,No,181310,431585000,2,No,,,,,,,,,UK007L1,No,Edinburgh
+UKM81,S30000013,Helensburgh and Lomond,,Yes,26164,394055000,2,No,,,,,,,,,,,
+UKM81,S30000014,West Dunbartonshire,,No,89610,182777900,2,No,,,,,,,,,UK004L1,No,Glasgow
+UKM81,S30000015,East Dunbartonshire,,No,108130,174611400,2,Yes,,,,,,UK004K1,No,Greater Glasgow,UK004L1,No,Glasgow
+UKM92,S30000016,Dumfries and Galloway,,Yes,149200,6676051800,3,No,,,,,,,,,,,
+UKM93,S30000017,East Ayrshire,,No,121940,1270334200,2,No,,,,,,,,,,,
+UKM93,S30000018,North Ayrshire mainland,,No,129902,450031100,2,No,,,,,,,,,,,
+UKM82,S30000019,Glasgow City,,No,621020,176432500,1,No,,,UK004C1,No,Glasgow City,UK004K1,No,Greater Glasgow,UK004L1,No,Glasgow
+UKM83,S30000020,East Renfrewshire,,No,94760,173791900,2,Yes,,,,,,UK004K1,No,Greater Glasgow,UK004L1,No,Glasgow
+UKM83,S30000021,Renfrewshire,,No,176830,269672600,1,No,,,UK585C1,No,Renfrewshire (Paisley),UK004K1,No,Greater Glasgow,UK004L1,No,Glasgow
+UKM83,S30000022,Inverclyde,,No,78760,173564400,1,No,,,UK584C1,No,Inverclyde (Greenock),,,,UK004L1,No,Glasgow
+UKM84,S30000023,North Lanarkshire,,No,339960,472126100,1,No,,,UK502C1,No,North Lanarkshire (Airdrie/Bellshill/Coatbridge/Motherwell),,,,UK004L1,No,Glasgow
+UKM94,S30000024,South Ayrshire,,No,112680,1234722100,2,No,,,,,,,,,,,
+UKM95,S30000025,South Lanarkshire,,No,318170,1774051800,2,No,,,,,,,,,UK004L1,No,Glasgow
+UKM50,S30000026,Aberdeen City,,No,228800,205610300,1,No,,,UK016C1,No,Aberdeen City,,,,UK016L1,No,Aberdeen
+UKM50,S30000027,Aberdeenshire,,No,261800,6338817000,3,No,,,,,,,,,UK016L1,No,Aberdeen
+UKM61,S30000028,Ross and Cromarty,,Yes,55114,5299661500,3,No,,,,,,,,,,,
+UKM61,S30000029,Caithness and Sutherland,,Yes,38520,7940398800,3,No,,,,,,,,,,,
+UKM62,S30000030,Inverness and Nairn,,Yes,94671,3356414500,2,No,,,,,,,,,,,
+UKM62,S30000031,Badenoch and Strathspey,,Yes,13838,2369813200,3,No,,,,,,,,,,,
+UKM62,S30000032,West Moray,,No,24200,1427752000,3,No,,,,,,,,,,,
+UKM62,S30000033,North East Moray,,No,71580,829321400,2,No,,,,,,,,,,,
+UKM63,S30000034,Arran and Cumbrae,,Yes,5888,453883600,3,No,,,,,,,,,,,
+UKM63,S30000035,Argyll and Bute Islands,,Yes,7173,2211523700,3,No,,,,,,,,,,,
+UKM63,S30000036,Argyll and Bute Mainland,,Yes,53473,4557396900,3,No,,,,,,,,,,,
+UKM63,S30000037,Lochaber,,No,19894,4719222800,3,No,,,,,,,,,,,
+UKM63,S30000038,Skye and Lochalsh,,Yes,13143,2798846200,3,No,,,,,,,,,,,
+UKM64,S30000039,Na h-Eileanan Siar (Western Isles),,Yes,26950,3268544000,3,No,,,,,,,,,,,
+UKM65,S30000040,Orkney Islands,,No,22000,1086210200,3,No,,,,,,,,,,,
+UKM66,S30000041,Shetland Islands,,No,23080,1656589900,3,No,,,,,,,,,,,
+UKL11,W06000001,Isle of Anglesey,,No,69794,749022700,3,No,,,,,,,,,,,
+UKL12,W06000002,Gwynedd,,No,123742,2622378700,3,No,,,,,,,,,,,
+UKL13,W06000003,Conwy,,No,116863,1153483500,2,No,,,,,,,,,,,
+UKL13,W06000004,Denbighshire,,No,95159,846380100,2,No,,,,,,,,,,,
+UKL23,W06000005,Flintshire,,No,155155,489439300,2,No,,,,,,,,,UK568L1,No,Cheshire West and Chester
+UKL23,W06000006,Wrexham,,No,135571,503773900,1,No,,,UK022C1,No,Wrexham,,,,,,
+UKL14,W06000008,Ceredigion,,No,73076,1805867600,3,No,,,,,,,,,,,
+UKL14,W06000009,Pembrokeshire,,No,124711,1650471900,3,No,,,,,,,,,,,
+UKL14,W06000010,Carmarthenshire,,No,186452,2438947400,2,No,,,,,,,,,,,
+UKL18,W06000011,Swansea,,No,245480,420897700,1,No,,,UK517C1,No,Swansea,,,,UK517L1,No,Swansea
+UKL17,W06000012,Neath Port Talbot,,No,142090,451870000,2,No,,,,,,,,,UK517L1,No,Swansea
+UKL17,W06000013,Bridgend,,No,144288,255311400,2,No,,,,,,,,,,,
+UKL22,W06000014,Vale of Glamorgan,,No,130690,339675700,2,No,,,,,,,,,UK009L1,No,Cardiff
+UKL22,W06000015,Cardiff,,No,362756,149511200,1,No,,,UK009C1,No,Cardiff,,,,UK009L1,No,Cardiff
+UKL15,W06000016,Rhondda Cynon Taf,,No,239127,424150300,2,No,,,,,,,,,UK009L1,No,Cardiff
+UKL16,W06000018,Caerphilly,,No,180795,277387900,2,No,,,,,,,,,UK009L1,No,Cardiff
+UKL16,W06000019,Blaenau Gwent,,No,69609,108727900,2,No,,,,,,,,,,,
+UKL16,W06000020,Torfaen,,No,92264,126240100,2,No,,,,,,,,,UK558L1,No,Newport
+UKL21,W06000021,Monmouthshire,,No,93590,886053400,2,No,,,,,,,,,,,
+UKL21,W06000022,Newport,,No,151485,217767600,1,No,,,UK558C1,No,Newport,,,,UK558L1,No,Newport
+UKL24,W06000023,Powys,,No,132515,5195456100,3,No,,,,,,,,,,,
+UKL15,W06000024,Merthyr Tydfil,,No,59953,111956900,2,No,,,,,,,,,,,
