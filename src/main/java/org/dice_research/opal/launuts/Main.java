@@ -30,6 +30,7 @@ public class Main {
 
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);
+		Map<String, NutsContainer> nutsIndexUK = Cache.getNutsUK(false);
 
 		// NUTS-1 prefLabel
 		enhancePrefLabel(nutsIndex);
@@ -37,6 +38,9 @@ public class Main {
 
 		// Parse LAU CSV
 		List<LauContainer> lauList = Cache.getLau(true);
+
+		// Parse LAU UK CSV
+		List<LauContainer> lauListUK = Cache.getLauUK(true);
 
 		// Parse DBpedia places
 		Map<String, DbpediaPlaceContainer> dbpediaIndex = DbpediaRemote.createPlacesIndex(Cache.getDbpedia(true));
@@ -50,7 +54,11 @@ public class Main {
 
 				.addNuts(nutsIndex.values())
 
+				.addNuts(nutsIndexUK.values())
+
 				.addLau(lauList)
+
+				.addLau(lauListUK)
 
 				.addGeoData(dbpediaIndex, matcher.getNutsToDbpedia(), matcher.getLauToDbpedia())
 

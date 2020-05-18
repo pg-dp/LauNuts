@@ -27,8 +27,35 @@ public class LauContainer implements Serializable {
 		return simpleName;
 	}
 
+	public String getCountryName() {
+		return "" ;
+	}
+
 	public String getUri() {
-		return Vocabularies.NS_LAU_DE + lauCode;
+		if(nuts3code.contains("DE")) {
+			return Vocabularies.NS_LAU_DE + lauCode;
+		}
+		else if (nuts3code.contains("UK")) {
+			return Vocabularies.NS_LAU_UK + lauCode;
+		}
+
+		return " ";
+	}
+
+	public String getLauNameLatin() {
+		return lauNameLatin;
+	}
+
+	public String getLauCode() {
+		return lauCode;
+	}
+
+	public String getLauNameNational() {
+		return lauNameNational;
+	}
+
+	public String getNuts3code() {
+		return nuts3code;
 	}
 
 	@Override

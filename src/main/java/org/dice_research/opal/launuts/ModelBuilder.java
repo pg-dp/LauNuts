@@ -44,7 +44,8 @@ public class ModelBuilder {
 		model.setNsPrefix("dbo", Vocabularies.NS_DBO);
 
 		// Additional prefixes to reduce model size
-		model.setNsPrefix("laude", Vocabularies.NS_LAU_DE);
+		model.setNsPrefix("lauDE", Vocabularies.NS_LAU_DE);
+		model.setNsPrefix("lauUK", Vocabularies.NS_LAU_UK);
 		model.setNsPrefix("nutscode", Vocabularies.NS_EU_NUTS_CODE);
 	}
 
@@ -123,26 +124,26 @@ public class ModelBuilder {
 	public ModelBuilder addLau(List<LauContainer> lauList) {
 		for (LauContainer container : lauList) {
 			Resource lau = getModel().createResource(container.getUri());
-			if (nuts3map.containsKey(container.nuts3code)) {
+			if (nuts3map.containsKey(container.getNuts3code())) {
 
 				if (ADD_TYPE_CONCEPT) {
 					getModel().add(lau, Vocabularies.PROP_TYPE, Vocabularies.RES_CONCEPT);
 				}
 				getModel().add(lau, Vocabularies.PROP_TYPE, Vocabularies.RES_LAU);
 
-				getModel().add(lau, Vocabularies.PROP_BROADER, nuts3map.get(container.nuts3code));
+				getModel().add(lau, Vocabularies.PROP_BROADER, nuts3map.get(container.getNuts3code()));
 				if (ADD_NARROWER) {
-					getModel().add(nuts3map.get(container.nuts3code), Vocabularies.PROP_NARROWER, lau);
+					getModel().add(nuts3map.get(container.getNuts3code()), Vocabularies.PROP_NARROWER, lau);
 				}
 
-				getModel().add(lau, Vocabularies.PROP_NOTATION, getModel().createLiteral(container.lauCode));
+				getModel().add(lau, Vocabularies.PROP_NOTATION, getModel().createLiteral(container.getLauCode()));
 
 				getModel().add(lau, Vocabularies.PROP_PREFLABEL, getModel().createLiteral(container.getSimpleName()));
-				if (!container.getSimpleName().equals(container.lauNameLatin)) {
-					getModel().add(lau, Vocabularies.PROP_ALTLABEL, getModel().createLiteral(container.lauNameLatin));
+				if (!container.getSimpleName().equals(container.getLauNameLatin())) {
+					getModel().add(lau, Vocabularies.PROP_ALTLABEL, getModel().createLiteral(container.getLauNameLatin()));
 				}
 			} else {
-				System.err.println("Unknown NUTS3 code: " + container.nuts3code + " for " + container.lauCode);
+				System.err.println("Unknown NUTS3 code: " + container.getNuts3code() + " for " + container.getLauCode());
 				continue;
 			}
 		}
