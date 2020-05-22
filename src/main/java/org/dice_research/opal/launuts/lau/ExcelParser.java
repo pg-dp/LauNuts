@@ -10,11 +10,12 @@ public class ExcelParser implements LauReaderInterface {
     Workbook workbook = null;
     Sheet sheet = null;
     List<LauContainer> lauContainerList = new LinkedList<LauContainer>();
+    Map<String, List<String>> getCodes = new HashMap<>();
 
     @Override
     public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException, IOException {
         workbook = WorkbookFactory.create(directory);
-        return null;
+        return this;
     }
 
     @Override
@@ -32,7 +33,6 @@ public class ExcelParser implements LauReaderInterface {
     @Override
     public Map<String, List<String>> getCodes(String countryId) throws LauReaderException {
 
-        Map<String, List<String>> getCodes = new HashMap<>();
         String nutsCode = null;
         List<String> lauCodes = new ArrayList<>();
         LauContainer container = new LauContainer();
