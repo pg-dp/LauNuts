@@ -1,6 +1,7 @@
 package org.dice_research.opal.launuts.lau;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public interface LauReaderInterface {
 	/**
 	 * Sets source directory for LAU reader. Should contain XLSX and/or CSV files.
 	 */
-	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException;
+	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException, IOException;
 
 	/**
 	 * Returns a list of available country IDs.

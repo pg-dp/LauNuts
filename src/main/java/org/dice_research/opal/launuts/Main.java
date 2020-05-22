@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import org.apache.commons.io.FileUtils;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.dbpedia.DbpediaRemote;
+import org.dice_research.opal.launuts.lau.ExcelParser;
 import org.dice_research.opal.launuts.lau.LauContainer;
 import org.dice_research.opal.launuts.matcher.MatcherVersion2;
 import org.dice_research.opal.launuts.matcher.StaticMappings;
@@ -27,6 +28,12 @@ public class Main {
 	}
 
 	private void run() throws Exception {
+
+        ExcelParser excelParser = new ExcelParser();
+        File lauXlsxFile = new File("EU-28-LAU-2019-NUTS-2016.xlsx");
+        excelParser.setLauSourceDirectory(lauXlsxFile);
+        excelParser.getCountryIds();
+        excelParser.getCodes("DE");
 
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);
