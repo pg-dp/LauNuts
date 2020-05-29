@@ -2,6 +2,7 @@ package org.dice_research.opal.launuts.lau;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,5 +47,5 @@ public interface LauReaderInterface {
 	 * rows. Data for each country uses the same keys. The keys are also used in LAU
 	 * container objects.
 	 */
-	public List<String> getKeys() throws LauReaderException;
+	public HashMap<String,Integer> getKeys() throws LauReaderException;
 }

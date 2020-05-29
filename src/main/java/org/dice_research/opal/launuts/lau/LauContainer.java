@@ -17,6 +17,22 @@ public class LauContainer implements Serializable {
 	public String lauNameLatin;
 	public String lauNameNational;
 	public String nuts3code;
+	public String change;
+	public String population;
+	public String totalArea;
+	public String degubra;
+	public String degChange;
+	public String coastalArea;
+	public String coastalAreaChange;
+	public String cityId;
+	public String cityIdChange;
+	public String cityName;
+	public String greaterCityId;
+	public String greaterCityIdChange;
+	public String greaterCityName;
+	public String fuaId;
+	public String fuaIdChange;
+	public String fuaName;
 
 	public String getSimpleName() {
 		String simpleName = lauNameNational;
