@@ -32,7 +32,7 @@ public class Main {
 
 		ExcelParser excelParser = new ExcelParser() ;
 		excelParser.setLauSourceDirectory();
-		excelParser.getCodes("DE");
+		excelParser.getCodes("UK");
 
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);

@@ -165,18 +165,19 @@ public class ExcelParser implements LauReaderInterface {
             container.lauCode = cellValues(row,"lauCode");
             container.lauNameLatin = cellValues(row,"lauNameLatin");;
             container.lauNameNational = cellValues(row,"lauNameNational");
-            container.change = cellValues(row,"change");;
-            container.population = cellValues(row,"population");;
-            container.cityIdChange = cellValues(row,"cityIdChange");;
-            container.cityId = cellValues(row,"cityId");;
+            container.change = cellValues(row,"change");
+            container.population = cellValues(row,"population");
+            container.population = cellValues(row,"totalArea");
+            container.degubra = cellValues(row,"degubra");
+            container.degChange = cellValues(row,"degChange");
+            container.coastalArea = cellValues(row,"coastalArea");
+            container.coastalAreaChange = cellValues(row,"coastalAreaChange");
+            container.cityId = cellValues(row,"cityId");
+            container.cityIdChange = cellValues(row,"cityIdChange");
             container.cityName = cellValues(row,"cityName");;
             container.greaterCityId = cellValues(row,"greaterCityId");
             container.greaterCityIdChange = cellValues(row,"greaterCityIdChange");
             container.greaterCityName = cellValues(row,"greaterCityName");
-            container.coastalArea = cellValues(row,"coastalArea");
-            container.degubra = cellValues(row,"degubra");
-            container.degChange = cellValues(row,"degChange");
-            container.coastalAreaChange = cellValues(row,"coastalAreaChange");
             container.fuaId = cellValues(row,"fuaId");
             container.fuaIdChange = cellValues(row,"fuaIdChange");
             container.fuaName = cellValues(row,"fuaName");
@@ -185,6 +186,7 @@ public class ExcelParser implements LauReaderInterface {
 
             laucodeToLauContainerMap.put(container.lauCode, container);
             index.put(container.nuts3code, laucodeToLauContainerMap);
+
         }
 
         parsed = true;
@@ -192,8 +194,8 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     public String cellValues(Row row , String key) {
-
-        return row.getCell(getkeys.get(key),
-                Row.MissingCellPolicy.RETURN_NULL_AND_BLANK).getStringCellValue();
+        
+        DataFormatter formatter = new DataFormatter();
+        return formatter.formatCellValue(row.getCell(getkeys.get(key))) ;
     }
 }
