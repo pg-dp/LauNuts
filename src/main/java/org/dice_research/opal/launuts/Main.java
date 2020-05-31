@@ -29,12 +29,10 @@ public class Main {
 
 	private void run() throws Exception {
 
-        ExcelParser excelParser = new ExcelParser();
-        File lauXlsxFile = new File("EU-28-LAU-2019-NUTS-2016.xlsx");
-        excelParser.setLauSourceDirectory(lauXlsxFile);
-		List<String> countryIds =  excelParser.getCountryIds();
-		if(countryIds.contains("DE"))
-			excelParser.getCodes("DE");
+
+		ExcelParser excelParser = new ExcelParser() ;
+		excelParser.setLauSourceDirectory();
+		excelParser.getCodes("DE");
 
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);

@@ -22,7 +22,7 @@ public interface LauReaderInterface {
 	/**
 	 * Sets source directory for LAU reader. Should contain XLSX and/or CSV files.
 	 */
-	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException, IOException;
+	public LauReaderInterface setLauSourceDirectory() throws LauReaderException, IOException;
 
 	/**
 	 * Returns a list of available country IDs.
