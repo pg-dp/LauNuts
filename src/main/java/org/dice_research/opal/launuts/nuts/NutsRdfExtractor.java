@@ -43,18 +43,6 @@ public class NutsRdfExtractor {
 		nutsIndex.put(container0.notation, container0);
 
 		List<Resource> nuts1 = getNarrower(Vocabularies.RES_EU_DE);
-		return getNutsRdfExtractor(container0, nuts1);
-	}
-
-	public NutsRdfExtractor extractNutsUK() throws Exception {
-		NutsContainer container0 = createContainer(replaceDeprecated(Vocabularies.RES_EU_UK), 0);
-		nutsIndex.put(container0.notation, container0);
-
-		List<Resource> nuts1 = getNarrower(Vocabularies.RES_EU_UK);
-		return getNutsRdfExtractor(container0, nuts1);
-	}
-
-	private NutsRdfExtractor getNutsRdfExtractor(NutsContainer container0, List<Resource> nuts1) throws Exception {
 		for (Resource res1 : nuts1) {
 			NutsContainer container1 = createContainer(replaceDeprecated(res1), 1);
 			container1.parent = container0;

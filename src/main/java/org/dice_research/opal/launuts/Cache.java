@@ -22,7 +22,6 @@ public abstract class Cache extends Serialization {
 
 	public static final File FILE_DBPEDIA = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "dbpedia");
 	public static final File FILE_LAU = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "lau");
-	public static final File FILE_LAUUK = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "lauUK");
 	public static final File FILE_NUTS = new File(Cfg.getInstance().get(Cfg.CACHE_DIRECTORY), "nuts");
 
 	/**
@@ -65,21 +64,6 @@ public abstract class Cache extends Serialization {
 		}
 	}
 
-	public static List<LauContainer> getLauUK(boolean useCache) throws Exception {
-		if (useCache && Cache.FILE_LAUUK.exists()) {
-			List<LauContainer> lau = Cache.readLauUK();
-			System.out.println("Read " + lau.size() + " LAU UK from cache.");
-			return lau;
-		} else {
-			System.out.println("Computing LAU UK.");
-			LauCsvParser lauCsvParser = new LauCsvParser().parse(Cfg.getInstance().get(Cfg.LAU_FILEUK));
-			if (useCache) {
-				Cache.writeLauUK(lauCsvParser.getLauList());
-			}
-			return lauCsvParser.getLauList();
-		}
-	}
-
 	/**
 	 * Reads data from cache, if {@code useCache} is set and cache-file exists.
 	 * 
@@ -94,22 +78,6 @@ public abstract class Cache extends Serialization {
 			System.out.println("Computing NUTS.");
 			NutsRdfExtractor nutsRdfExtractor = new NutsRdfExtractor(Cfg.getInstance().get(Cfg.NUTS_FILE))
 					.extractNuts();
-			if (useCache) {
-				Cache.writeNuts(nutsRdfExtractor.getNutsIndex());
-			}
-			return nutsRdfExtractor.getNutsIndex();
-		}
-	}
-
-	public static Map<String, NutsContainer> getNutsUK(boolean useCache) throws Exception {
-		if (useCache && Cache.FILE_NUTS.exists()) {
-			Map<String, NutsContainer> nuts = Cache.readNuts();
-			System.out.println("Read " + nuts.size() + " NUTS UK from cache.");
-			return nuts;
-		} else {
-			System.out.println("Computing NUTS UK.");
-			NutsRdfExtractor nutsRdfExtractor = new NutsRdfExtractor(Cfg.getInstance().get(Cfg.NUTS_FILE))
-					.extractNutsUK();
 			if (useCache) {
 				Cache.writeNuts(nutsRdfExtractor.getNutsIndex());
 			}
@@ -134,11 +102,6 @@ public abstract class Cache extends Serialization {
 	}
 
 	@SuppressWarnings("unchecked")
-	protected static List<LauContainer> readLauUK() throws ClassNotFoundException, IOException {
-		return (List<LauContainer>) Serialization.read(FILE_LAUUK);
-	}
-
-	@SuppressWarnings("unchecked")
 	protected static Map<String, NutsContainer> readNuts() throws ClassNotFoundException, IOException {
 		return (Map<String, NutsContainer>) Serialization.read(FILE_NUTS);
 	}
@@ -157,11 +120,6 @@ public abstract class Cache extends Serialization {
 	protected static void writeLau(List<LauContainer> lau) throws IOException {
 		FILE_LAU.getParentFile().mkdirs();
 		write(lau, FILE_LAU);
-	}
-
-	protected static void writeLauUK(List<LauContainer> lau) throws IOException {
-		FILE_LAUUK.getParentFile().mkdirs();
-		write(lau, FILE_LAUUK);
 	}
 
 	/**

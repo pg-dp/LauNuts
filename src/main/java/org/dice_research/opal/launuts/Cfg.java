@@ -17,7 +17,6 @@ public class Cfg extends Configuration {
 	public static final String CACHE_DIRECTORY = "directory.cache";
 	public static final String OUT_DIRECTORY = "directory.output";
 	public static final String LAU_FILE = "lau.csv.file";
-	public static final String LAU_FILEUK = "lau.csvUK.file";
 	public static final String NUTS_FILE = "nuts.rdf.file";
 
 	private static Cfg instance;
@@ -40,7 +39,6 @@ public class Cfg extends Configuration {
 		properties.put(OUT_DIRECTORY, new File(tmpDir, "launuts").getAbsolutePath());
 		properties.put(CACHE_DIRECTORY, new File(tmpDir, "launuts-cache").getAbsolutePath());
 		properties.put(LAU_FILE, "EU-28-LAU-2019-NUTS-2016-DE.csv");
-		properties.put(LAU_FILEUK, "EU-28-LAU-2019-NUTS-2016-UK.csv");
 		properties.put(NUTS_FILE, "nuts.rdf");
 		return properties;
 	}
