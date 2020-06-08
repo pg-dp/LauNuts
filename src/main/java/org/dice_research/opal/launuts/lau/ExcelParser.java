@@ -130,6 +130,7 @@ public class ExcelParser implements LauReaderInterface {
         getkeys.put("fuaIdChange", 18);
         getkeys.put("fuaName", 19);
 
+        //Adds the data to the container for creating RDF Map
         for (Row row : Iterables.skip(sheet, 1)) {
             LauContainer container = new LauContainer();
 
@@ -182,7 +183,7 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     private String cellValues(Row row, String key) {
-
+        //Return the cell value after formatting so that empty/numeric cells are returned
         DataFormatter formatter = new DataFormatter();
         return formatter.formatCellValue(row.getCell(getkeys.get(key)));
     }

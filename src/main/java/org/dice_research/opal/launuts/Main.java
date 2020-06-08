@@ -28,11 +28,7 @@ public class Main {
 	}
 
 	private void run() throws Exception {
-
-		ExcelParser excelParser = new ExcelParser() ;
-		excelParser.setLauSourceDirectory();
-		excelParser.getCodes("UK");
-
+		
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);
 

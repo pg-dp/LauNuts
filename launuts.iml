@@ -28,17 +28,17 @@
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.26" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.7" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-rdfconnection:3.14.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-arq:3.14.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-core:3.14.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-iri:3.14.0" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-base:3.14.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-rdfconnection:3.15.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-arq:3.15.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-core:3.15.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-base:3.15.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.andrewoma.dexx:collection:0.7" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.jena:jena-shaded-guava:3.14.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-iri:3.15.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.jena:jena-shaded-guava:3.15.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.10" level="project" />
     <orderEntry type="library" name="Maven: io.github.galbiston:geosparql-jena:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.sis.core:sis-referencing:0.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.sis.core:sis-utility:0.8" level="project" />
@@ -60,5 +60,7 @@
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.19" level="project" />
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.06" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>
 </module>
