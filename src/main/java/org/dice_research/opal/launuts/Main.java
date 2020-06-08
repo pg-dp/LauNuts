@@ -27,6 +27,7 @@ public class Main {
 	}
 
 	private void run() throws Exception {
+
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);
 
