@@ -59,10 +59,12 @@ public class NutsParserMethodsTest {
 				{ 50.13673, 8.78065 } };
 		JSONObject coordinates = new JSONObject();
 		coordinates.put("coordinates", arrays);
-		JSONArray contentItems = new JSONArray();
-		contentItems.add(coordinates);
-		String geometry_type = "Polygon";
-		Boolean invalid_polygon = NutsParser.areValidPolygons(contentItems, geometry_type);
+		JSONArray first_ring = new JSONArray();
+		JSONArray coordinates_of_polygon = new JSONArray();
+		first_ring.add(coordinates);
+		coordinates_of_polygon.add(first_ring);
+		String geometry_type = "multipolygon";
+		Boolean invalid_polygon = NutsParser.areValidPolygons(coordinates_of_polygon, geometry_type);
 		System.out.println(invalid_polygon);
 		Assert.assertEquals("It must return false", false, invalid_polygon);
 
