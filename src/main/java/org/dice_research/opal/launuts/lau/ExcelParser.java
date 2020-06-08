@@ -140,7 +140,7 @@ public class ExcelParser implements LauReaderInterface {
             container.lauNameNational = cellValues(row, "lauNameNational");
             container.change = cellValues(row, "change");
             container.population = cellValues(row, "population");
-            container.population = cellValues(row, "totalArea");
+            container.totalArea = cellValues(row, "totalArea");
             container.degubra = cellValues(row, "degubra");
             container.degChange = cellValues(row, "degChange");
             container.coastalArea = cellValues(row, "coastalArea");

@@ -10,7 +10,6 @@ import java.util.Map.Entry;
 import org.apache.commons.io.FileUtils;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.dbpedia.DbpediaRemote;
-import org.dice_research.opal.launuts.lau.ExcelParser;
 import org.dice_research.opal.launuts.lau.LauContainer;
 import org.dice_research.opal.launuts.matcher.MatcherVersion2;
 import org.dice_research.opal.launuts.matcher.StaticMappings;
@@ -28,7 +27,6 @@ public class Main {
 	}
 
 	private void run() throws Exception {
-		
 		// Extract NUTS RDF
 		Map<String, NutsContainer> nutsIndex = Cache.getNuts(true);
 
