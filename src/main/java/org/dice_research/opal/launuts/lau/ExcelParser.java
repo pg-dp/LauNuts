@@ -81,7 +81,7 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     @Override
-    public HashMap<String, Integer> getKeys() {
+    public HashMap<String, Integer> getKeys()  {
 
         if (!parsed) {
             parse();
