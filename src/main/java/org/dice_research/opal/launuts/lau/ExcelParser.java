@@ -58,7 +58,7 @@ public class ExcelParser implements LauReaderInterface {
                 parse();
             }
         }
-        return this.getCodes;
+        return getCodes;
     }
 
     @Override
@@ -87,7 +87,7 @@ public class ExcelParser implements LauReaderInterface {
             parse();
         }
 
-        return this.getkeys;
+        return getkeys;
     }
 
     private void parse() {

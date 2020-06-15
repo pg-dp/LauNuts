@@ -14,7 +14,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-
 /*
  * This class implements the test cases for class ExcelParser.
  * It test for the container size, Header size of input file and available nut codes.
@@ -22,7 +21,6 @@ import static org.junit.Assert.assertFalse;
  * Runs test cases sequentially to decrease the runtime
  *
  * Author: Amit Kumar
- *
  *
  * */
 
