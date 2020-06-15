@@ -9,8 +9,13 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Generic Parser to parse all the sheet from the xlsx.
- * Used instead of {@link LauCsvParser}.
+ * EU-28-LAU-2019-NUTS-2016.xlsx , this file contains 41 sheets ,
+ * in which 39 sheets are of different countries having information
+ * like laucode, nutscode,population, total area and so on .
+ * This class parses all the information using Apache POI library
+ * and map them into different usable maps. It implements {@link LauReaderInterface}
+ * FurtherMore , LauCsvParser {@link LauCsvParser} is no more needed, ths class is self
+ * sufficient for generating the knowledge graphs.
  *
  * @author Vikrant Singh
  */
@@ -18,28 +23,24 @@ import java.util.*;
 
 public class ExcelParser implements LauReaderInterface {
 
-    public static final String FILE_NAME = "EU-28-LAU-2019-NUTS-2016.xlsx";
-
-    List<LauContainer> lauContainerList = new LinkedList<LauContainer>();
-    private HashMap<String, HashMap<String, LauContainer>> index;
+    private static final String FILE_NAME = "EU-28-LAU-2019-NUTS-2016.xlsx";
 
     private Workbook workbook;
-    private Sheet sheet;
-    private Map<String, List<String>> getCodes = new HashMap<>();
-    private HashMap<String, Integer> getkeys = new HashMap<String, Integer>();
-    private HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<String, LauContainer>();
+    private Map<String, List<String>> getCodes;
+    private HashMap<String, Integer> getkeys;
     private List<String> countryIds;
+    private HashMap<String, HashMap<String, LauContainer>> index;
     private boolean parsed = false;
+    private String currentCountry = "DE";
 
-    @Override
-    public LauReaderInterface setLauSourceDirectory() throws IOException {
+    public LauReaderInterface setLauSourceDirectory(File directory) throws IOException {
 
-        workbook = WorkbookFactory.create(new File(FILE_NAME));
+        workbook = WorkbookFactory.create(new File(directory, FILE_NAME));
         return this;
     }
 
     @Override
-    public List<String> getCountryIds() throws LauReaderException {
+    public List<String> getCountryIds() {
 
         if (!parsed)
             parse();
@@ -48,29 +49,29 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     @Override
-    public Map<String, List<String>> getCodes(String countryId) throws LauReaderException {
+    public Map<String, List<String>> getCodes(String countryId) {
 
         if (getCountryIds().contains(countryId)) {
-            sheet = workbook.getSheet(countryId);
 
-            if (!parsed) {
+            if (!parsed || !currentCountry.equals(countryId)) {
+                currentCountry = countryId;
                 parse();
             }
         }
-
-        return getCodes;
-
+        return this.getCodes;
     }
 
     @Override
-    public LauContainer getData(String nutsCode, String lauCode) throws LauReaderException {
+    public LauContainer getData(String nutsCode, String lauCode) {
+
         LauContainer container = null;
+        Map<String, LauContainer> lauCodeToContainerMap;
 
         if (!parsed) {
             parse();
         }
 
-        Map<String, LauContainer> lauCodeToContainerMap;
+        //gets the container , according to the Map index.
         if (index.containsKey(nutsCode)) {
             lauCodeToContainerMap = index.get(nutsCode);
             container = lauCodeToContainerMap.get(lauCode);
@@ -80,33 +81,40 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     @Override
-    public HashMap<String, Integer> getKeys() throws LauReaderException {
+    public HashMap<String, Integer> getKeys() {
 
         if (!parsed) {
             parse();
         }
 
-        return getkeys;
+        return this.getkeys;
     }
 
-    private void parse() throws LauReaderException {
+    private void parse() {
 
-        String countryId = "";
-        index = new HashMap<String, HashMap<String, LauContainer>>();
-        List<String> oldLauCodes = new ArrayList<>();
-        String nutsCode = null;
-        List<String> lauCodes = new ArrayList<>();
+        String countryId;
 
         if (countryIds == null) {
-            countryIds = new LinkedList<String>();
+            countryIds = new LinkedList<>();
             for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
                 countryId = workbook.getSheetAt(i).getSheetName();
                 if (countryId.length() == 2)
                     countryIds.add(countryId);
             }
-
-            return;
         }
+
+        index = new HashMap<>();
+        List<String> oldLauCodes;
+        String nutsCode = null;
+        List<String> lauCodes = new ArrayList<>();
+        Sheet sheet = workbook.getSheet(currentCountry);
+
+        //use LauContainer need as per your use , unused here.
+        List<LauContainer> lauContainerList = new LinkedList<>();
+
+        HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<>();
+        getCodes = new HashMap<>();
+        getkeys = new HashMap<>();
 
         //creates an easy to read map according to sheet headers
         getkeys.put("nuts3code", 0);
@@ -161,7 +169,7 @@ public class ExcelParser implements LauReaderInterface {
             index.put(container.nuts3code, laucodeToLauContainerMap);
 
             // creates the map getCodes which is  map<nutsCode ,list<laucodes>>
-            if (container.nuts3code != nutsCode) {
+            if (!container.nuts3code.equals(nutsCode)) {
                 if (nutsCode != null) {
                     if (getCodes.containsKey(nutsCode)) {
                         oldLauCodes = getCodes.get(nutsCode);

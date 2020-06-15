@@ -8,21 +8,22 @@ import java.util.Map;
 
 /**
  * Interface for LAU reader.
- * 
+ *
  * TODO This is a development recommendation, changes are allowed.
- * 
+ *
  * @see https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
  *      "Correspondence table LAU – NUTS 2016, EU-28 and EFTA / available Candidate Countries; 2019; 23 MB"
  * @see https://hobbitdata.informatik.uni-leipzig.de/OPAL/LauNuts/Sources/
- * 
+ *
  * @author Adrian Wilke
  */
+
 public interface LauReaderInterface {
 
 	/**
 	 * Sets source directory for LAU reader. Should contain XLSX and/or CSV files.
 	 */
-	public LauReaderInterface setLauSourceDirectory() throws LauReaderException, IOException;
+	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException, IOException;
 
 	/**
 	 * Returns a list of available country IDs.
@@ -36,7 +37,7 @@ public interface LauReaderInterface {
 
 	/**
 	 * Returns a container object containing parsed data for a country.
-	 * 
+	 *
 	 * TODO Dev note: Changing the structure auf {@link LauContainer} is absolutely
 	 * allowed.
 	 */
