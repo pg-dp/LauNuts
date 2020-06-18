@@ -82,7 +82,7 @@ public class LauParser extends NutsParser {
 		return jsonCoordinates;
 	}
 
-	private static JSONObject fillRemainingPolygonMetadta(JSONObject lauPolygon, JSONArray coordinates,
+	private JSONObject fillRemainingPolygonMetadta(JSONObject lauPolygon, JSONArray coordinates,
 			SimpleFeature feature) {
 
 		int childrenOfCoordinates = coordinates.size();
@@ -113,7 +113,7 @@ public class LauParser extends NutsParser {
 				}
 				JSONArray child_polygon_outer_ring = (JSONArray) childPolygonCoordinates.get(0);
 				outerRingSize = outerRingSize + child_polygon_outer_ring.size();
-				JSONArray childPolygonCoordinatesInLatLongFormat = getCoordinatesLatLongFormat(
+				JSONArray childPolygonCoordinatesInLatLongFormat = changeCoordinatesFormat(
 						childPolygonCoordinates);
 				coordinatesLatLongFormat.add(childPolygonCoordinatesInLatLongFormat);
 			}
@@ -133,7 +133,7 @@ public class LauParser extends NutsParser {
 			else
 				lauPolygon.put("valid_polygon", "false");
 			lauPolygon.put("geometry_type", "Polygon");
-			lauPolygon.put("coordinates", getCoordinatesLatLongFormat(firstChildOfCoordinates));
+			lauPolygon.put("coordinates", changeCoordinatesFormat(firstChildOfCoordinates));
 
 			if (firstChildOfCoordinates.size() > 1)
 				holes = lauParser.getInnerRings(coordinates);
@@ -146,7 +146,7 @@ public class LauParser extends NutsParser {
 		return lauPolygon;
 	}
 
-	public static void createLauPolygons() throws IOException, Exception {
+	public void createLauPolygons() throws IOException, Exception {
 
 		System.out.println(
 				"1. Please ensure that Launuts data in the folder \"resources/launuts_geojson_and_shape_files\" folder has been extracted!!");
