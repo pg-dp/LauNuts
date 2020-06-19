@@ -20,7 +20,7 @@ public class LauContainer implements Serializable {
     public String change;
     public String population;
     public String totalArea;
-    public String degubra;
+    public String degurba;
     public String degChange;
     public String coastalArea;
     public String coastalAreaChange;

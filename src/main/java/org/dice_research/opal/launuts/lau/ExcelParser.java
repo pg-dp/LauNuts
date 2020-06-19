@@ -1,6 +1,5 @@
 package org.dice_research.opal.launuts.lau;
 
-import org.apache.commons.collections4.ListUtils;
 import org.apache.jena.ext.com.google.common.collect.Iterables;
 import org.apache.poi.ss.usermodel.*;
 
@@ -50,14 +49,13 @@ public class ExcelParser implements LauReaderInterface {
 
     @Override
     public Map<String, List<String>> getCodes(String countryId) {
+        if ((getCountryIds().contains(countryId)) &&
+                (!parsed || !currentCountry.equals(countryId))) {
 
-        if (getCountryIds().contains(countryId)) {
-
-            if (!parsed || !currentCountry.equals(countryId)) {
-                currentCountry = countryId;
-                parse();
-            }
+            currentCountry = countryId;
+            parse();
         }
+
         return getCodes;
     }
 
@@ -81,7 +79,7 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     @Override
-    public HashMap<String, Integer> getKeys()  {
+    public HashMap<String, Integer> getKeys() {
 
         if (!parsed) {
             parse();
@@ -91,7 +89,6 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     private void parse() {
-
         String countryId;
 
         if (countryIds == null) {
@@ -101,20 +98,15 @@ public class ExcelParser implements LauReaderInterface {
                 if (countryId.length() == 2)
                     countryIds.add(countryId);
             }
+            return;
         }
 
-        index = new HashMap<>();
-        List<String> oldLauCodes;
-        String nutsCode = null;
-        List<String> lauCodes = new ArrayList<>();
         Sheet sheet = workbook.getSheet(currentCountry);
-
         //use LauContainer need as per your use , unused here.
         List<LauContainer> lauContainerList = new LinkedList<>();
-
-        HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<>();
         getCodes = new HashMap<>();
         getkeys = new HashMap<>();
+        index = new HashMap<>();
 
         //creates an easy to read map according to sheet headers
         getkeys.put("nuts3code", 0);
@@ -124,7 +116,7 @@ public class ExcelParser implements LauReaderInterface {
         getkeys.put("change", 4);
         getkeys.put("population", 5);
         getkeys.put("totalArea", 6);
-        getkeys.put("degubra", 7);
+        getkeys.put("degurba", 7);
         getkeys.put("degChange", 8);
         getkeys.put("coastalArea", 9);
         getkeys.put("coastalAreaChange", 10);
@@ -140,7 +132,10 @@ public class ExcelParser implements LauReaderInterface {
 
         //Adds the data to the container for creating RDF Map
         for (Row row : Iterables.skip(sheet, 1)) {
+
+            HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<>();
             LauContainer container = new LauContainer();
+            List<String> lauCodes = new ArrayList<>();
 
             container.nuts3code = cellValues(row, "nuts3code");
             container.lauCode = cellValues(row, "lauCode");
@@ -149,7 +144,7 @@ public class ExcelParser implements LauReaderInterface {
             container.change = cellValues(row, "change");
             container.population = cellValues(row, "population");
             container.totalArea = cellValues(row, "totalArea");
-            container.degubra = cellValues(row, "degubra");
+            container.degurba = cellValues(row, "degurba");
             container.degChange = cellValues(row, "degChange");
             container.coastalArea = cellValues(row, "coastalArea");
             container.coastalAreaChange = cellValues(row, "coastalAreaChange");
@@ -165,29 +160,24 @@ public class ExcelParser implements LauReaderInterface {
 
             lauContainerList.add(container);
 
-            laucodeToLauContainerMap.put(container.lauCode, container);
-            index.put(container.nuts3code, laucodeToLauContainerMap);
+            if (!index.containsKey(container.nuts3code)) {
+                laucodeToLauContainerMap.put(container.lauCode, container);
+                index.put(container.nuts3code, laucodeToLauContainerMap);
+                lauCodes.add(container.lauCode);
+            } else {
+                laucodeToLauContainerMap = index.get(container.nuts3code);
+                laucodeToLauContainerMap.put(container.lauCode, container);
+                index.put(container.nuts3code, laucodeToLauContainerMap);
 
-            // creates the map getCodes which is  map<nutsCode ,list<laucodes>>
-            if (!container.nuts3code.equals(nutsCode)) {
-                if (nutsCode != null) {
-                    if (getCodes.containsKey(nutsCode)) {
-                        oldLauCodes = getCodes.get(nutsCode);
-                        if (oldLauCodes != null)
-                            lauCodes = ListUtils.union(oldLauCodes, lauCodes);
-                    }
-
-                    getCodes.put(nutsCode, lauCodes);
-                }
-                nutsCode = container.nuts3code;
-                lauCodes = new ArrayList<>();
+                List<String> mainList = new ArrayList<>(laucodeToLauContainerMap.keySet());
+                lauCodes.addAll(mainList);
             }
 
-            lauCodes.add(container.lauCode);
+            getCodes.put(container.nuts3code, lauCodes);
         }
 
+        getCodes.remove("");
         parsed = true;
-
     }
 
     private String cellValues(Row row, String key) {
