@@ -50,11 +50,13 @@ public class LauParser extends NutsParser {
 	public LauParser() {
 		this.nameOfParserAfterFinalProcessing = "LAU_Polygons.json";
 		this.featureIdType = "gisco_id";
+		this.inputSource = new File(this.getClass().getClassLoader()
+				.getResource("launuts_geojson_and_shape_files/lau_1_1_million/LAU_2018.shp").getFile());
 	}
 
 	private static GeometryFactory geometryFactory = new GeometryFactory();
 
-	private static JSONObject wktToJSON(String wktParameter) throws IOException, InterruptedException {
+	private JSONObject wktToJSON(String wktParameter) throws IOException, InterruptedException {
 		/**
 		 * Call to Node.JS library to parse WKT to GeoJSON. The response from Node.Js is
 		 * stored in a temporary file in JSON format.
@@ -82,7 +84,7 @@ public class LauParser extends NutsParser {
 		return jsonCoordinates;
 	}
 
-	private static JSONObject fillRemainingPolygonMetadta(JSONObject lauPolygon, JSONArray coordinates,
+	private JSONObject fillRemainingPolygonMetadta(JSONObject lauPolygon, JSONArray coordinates,
 			SimpleFeature feature) {
 
 		int childrenOfCoordinates = coordinates.size();
@@ -146,7 +148,7 @@ public class LauParser extends NutsParser {
 		return lauPolygon;
 	}
 
-	public static void createLauPolygons() throws IOException, Exception {
+	public void createLauPolygons() throws IOException, Exception {
 
 		System.out.println(
 				"1. Please ensure that Launuts data in the folder \"resources/launuts_geojson_and_shape_files\" folder has been extracted!!");
@@ -160,10 +162,8 @@ public class LauParser extends NutsParser {
 			e1.printStackTrace();
 		}
 
-		File file = new File(new LauParser().getClass().getClassLoader()
-				.getResource("launuts_geojson_and_shape_files/lau_1_1_million/LAU_2018.shp").getFile());
 		Map<String, Object> map = new HashMap<>();
-		map.put("url", file.toURI().toURL());
+		map.put("url", this.inputSource.toURI().toURL());
 
 		DataStore dataStore = DataStoreFinder.getDataStore(map);
 		String typeName = dataStore.getTypeNames()[0];
@@ -214,9 +214,9 @@ public class LauParser extends NutsParser {
 		features.close();
 		dataStore.dispose();
 
-		try (FileWriter json_result = new FileWriter("LAU_Polygons.json")) {
-			json_result.write(allPolygons.toJSONString());
-			json_result.flush();
+		try (FileWriter jsonResult = new FileWriter(this.nameOfParserAfterFinalProcessing)) {
+			jsonResult.write(allPolygons.toJSONString());
+			jsonResult.flush();
 
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -1,8 +1,15 @@
 package org.dice_research.opal.launuts.polygons.parser;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+
 import org.dice_research.opal.launuts.polygons.MultiPolygon;
 import org.dice_research.opal.launuts.polygons.Polygon;
 import org.dice_research.opal.launuts.polygons.PolygonParserException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,9 +21,9 @@ import org.junit.Test;
  * In the first test, the integrity of the holes in LAU_Polygons.json will be
  * confirmed .
  * 
- * The second test is to confirm the validity of a few important methods which
- * were used in LauParser class to extract polygons from a shape file provides
- * from Eurostat.
+ * The second test is to confirm the working functionality of createLauPolygons
+ * method which extracts polygons with some useful metadata from provided shape
+ * file.
  * 
  * @author Gourab Sahu
  *
@@ -24,7 +31,10 @@ import org.junit.Test;
 
 public class LauParserTest {
 
-	public static LauParser lauParser = new LauParser();
+	public LauParser lauParser = new LauParser();
+	
+	/******************************Tests for lau holes*****************************************/
+	
 	public TestMultiPolygons tester = new TestMultiPolygons();
 	MultiPolygon firstMultipolygon;
 	MultiPolygon SecondMultiPolygon;
@@ -159,6 +169,62 @@ public class LauParserTest {
 		
 		Assert.assertEquals(false, tester.areTwoMultiPolygonsEqual(firstMultipolygon, POLYGON_OF_BARKENHOLM));
 		
+	}
+	
+	
+	/******************************Tests for createLauPolygons method*****************************************/
+	
+	@Test
+	public void testCaseForCreateLauPolygonsAverlak() throws IOException, Exception {
+		
+		lauParser.inputSource= new File(new LauParserTest().getClass().getClassLoader()
+				.getResource("lau_averlak/lau_averlak.shp").getFile());
+		lauParser.nameOfParserAfterFinalProcessing ="src/test/resources/lau_averlak/averlak_polygon.json";
+		lauParser.createLauPolygons();
+		lauParser.geojsonReader = new FileReader("src/test/resources/lau_averlak/averlak_polygon.json");
+		JSONArray arrayOfObjects = (JSONArray) lauParser.jsonParser.parse(lauParser.geojsonReader);
+		JSONObject averlakObject = (JSONObject) arrayOfObjects.get(0);
+		
+		Assert.assertEquals("averlak", averlakObject.get("lau_label").toString().toLowerCase());
+		Assert.assertEquals("DE_01051003", averlakObject.get("gisco_id").toString().toUpperCase());
+		Assert.assertEquals(9, Integer.parseInt(averlakObject.get("polygon_points").toString()));
+		Assert.assertEquals("polygon", averlakObject.get("geometry_type").toString().toLowerCase());
+		Assert.assertEquals("true", averlakObject.get("valid_polygon").toString().toLowerCase());
+		Assert.assertEquals(0, ((JSONArray)averlakObject.get("inner_rings")).size());
+	}
+	
+	@Test
+	public void testCaseForLauPolygonsKrummesse() throws IOException, Exception {
+		
+		lauParser.inputSource= new File(new LauParserTest().getClass().getClassLoader()
+				.getResource("lau_krummesse/lau_krummesse.shp").getFile());
+		lauParser.nameOfParserAfterFinalProcessing ="src/test/resources/lau_krummesse/krummesse_polygon.json";
+		lauParser.createLauPolygons();
+		lauParser.geojsonReader = new FileReader("src/test/resources/lau_krummesse/krummesse_polygon.json");
+		JSONArray arrayOfObjects = (JSONArray) lauParser.jsonParser.parse(lauParser.geojsonReader);
+		JSONObject krummesseObject = (JSONObject) arrayOfObjects.get(0);
+		
+		Assert.assertEquals("krummesse", krummesseObject.get("lau_label").toString().toLowerCase());
+		Assert.assertEquals("DE_01053075", krummesseObject.get("gisco_id").toString().toUpperCase());
+		Assert.assertEquals(19, Integer.parseInt(krummesseObject.get("polygon_points").toString()));
+		Assert.assertEquals("multipolygon", krummesseObject.get("geometry_type").toString().toLowerCase());
+		Assert.assertEquals("true", krummesseObject.get("valid_polygon").toString().toLowerCase());
+		Assert.assertEquals(1, ((JSONArray)krummesseObject.get("inner_rings")).size());
+	}
+	
+	@Test
+	public void testCaseForLauPolygonsSyntheticLau() throws IOException, Exception {
+		
+		lauParser.inputSource= new File(new LauParserTest().getClass().getClassLoader()
+				.getResource("lau_synthetic/lau_synthetic-polygon.shp").getFile());
+		lauParser.nameOfParserAfterFinalProcessing ="src/test/resources/lau_synthetic/synthetic_polygon.json";
+		lauParser.createLauPolygons();
+		lauParser.geojsonReader = new FileReader("src/test/resources/lau_synthetic/synthetic_polygon.json");
+		JSONArray arrayOfObjects = (JSONArray) lauParser.jsonParser.parse(lauParser.geojsonReader);
+		JSONObject syntheticObject = (JSONObject) arrayOfObjects.get(0);
+		
+		Assert.assertFalse(syntheticObject.get("geometry_type").toString().equalsIgnoreCase("multipolygon"));
+		Assert.assertFalse(syntheticObject.get("valid_polygon").toString().equalsIgnoreCase("false"));
 	}
 
 }

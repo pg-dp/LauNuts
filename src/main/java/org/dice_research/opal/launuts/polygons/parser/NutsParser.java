@@ -43,20 +43,20 @@ public class NutsParser implements PolygonParserInterface {
 	private static String nutsResolutions[] = { "nuts_1_1_million", "nuts_1_3_million", "nuts_1_10_million",
 			"nuts_1_20_million", "nuts_1_60_million" };
 
-	private static File sourceDirectoryForGeojson = new File(
-			new NutsParser().getClass().getClassLoader().getResource("launuts_geojson_and_shape_files").getFile());
-
 	private String nutsLevel[] = { "LEVL_3", "LEVL_2", "LEVL_1", "LEVL_0" };
 
-	private JSONParser jsonParser = new JSONParser();
-	private Reader geojsonReader;
+	protected JSONParser jsonParser = new JSONParser();
+	protected Reader geojsonReader;
 	private JSONArray allNutsWithPolygons = new JSONArray();
 	protected String nameOfParserAfterFinalProcessing;
 	protected String featureIdType;
+	protected File inputSource;
 
 	public NutsParser() {
 		this.nameOfParserAfterFinalProcessing = "NUTS_Polygons.json";
 		this.featureIdType = "nuts_id";
+		this.inputSource = new File(
+				this.getClass().getClassLoader().getResource("launuts_geojson_and_shape_files").getFile());
 	}
 
 	// Nuts-id and Nuts-name for all nuts.
@@ -156,7 +156,7 @@ public class NutsParser implements PolygonParserInterface {
 	}
 
 	private void extractNutsIdAndNutsnameFromCsvForAllNuts() throws FileNotFoundException {
-		File resourceFolder = sourceDirectoryForGeojson;
+		File resourceFolder = this.inputSource;
 
 		File[] listOfFolders = resourceFolder.listFiles();
 
@@ -294,8 +294,8 @@ public class NutsParser implements PolygonParserInterface {
 		for (int levlCounter = 0; levlCounter < nutsLevel.length; levlCounter++) {
 
 			for (int dirCounter = 0; dirCounter < nutsResolutions.length; dirCounter++) {
-				System.out.println(sourceDirectoryForGeojson + "/" + nutsResolutions[dirCounter]);
-				File currentDir = new File(sourceDirectoryForGeojson + "/" + nutsResolutions[dirCounter]);
+				System.out.println(this.inputSource + "/" + nutsResolutions[dirCounter]);
+				File currentDir = new File(this.inputSource + "/" + nutsResolutions[dirCounter]);
 				for (int fileCounter = 0; fileCounter < currentDir.listFiles().length; fileCounter++) {
 					String geojsonFile = currentDir.listFiles()[fileCounter].getName();
 
@@ -308,7 +308,7 @@ public class NutsParser implements PolygonParserInterface {
 						System.out.println(currentDir.listFiles()[fileCounter].getName().toString() + ":checked");
 
 						try {
-							geojsonReader = new FileReader(sourceDirectoryForGeojson + "/" + nutsResolutions[dirCounter]
+							geojsonReader = new FileReader(this.inputSource + "/" + nutsResolutions[dirCounter]
 									+ "/" + currentDir.listFiles()[fileCounter].getName().toString());
 
 							JSONObject rootObject = (JSONObject) jsonParser.parse(geojsonReader);
@@ -547,7 +547,7 @@ public class NutsParser implements PolygonParserInterface {
 	@Override
 	public LauReaderInterface setSourceDirectory(File directory) throws PolygonParserException {
 		// TODO Auto-generated method stub
-		sourceDirectoryForGeojson = directory;
+		this.inputSource = directory;
 		return null;
 	}
 
