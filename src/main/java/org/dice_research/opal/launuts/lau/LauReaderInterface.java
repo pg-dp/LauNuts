@@ -8,16 +8,14 @@ import java.util.Map;
 
 /**
  * Interface for LAU reader.
- *
+ * <p>
  * TODO This is a development recommendation, changes are allowed.
  *
- * @see https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
- *      "Correspondence table LAU – NUTS 2016, EU-28 and EFTA / available Candidate Countries; 2019; 23 MB"
- * @see https://hobbitdata.informatik.uni-leipzig.de/OPAL/LauNuts/Sources/
- *
  * @author Adrian Wilke
+ * @see https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
+ * "Correspondence table LAU – NUTS 2016, EU-28 and EFTA / available Candidate Countries; 2019; 23 MB"
+ * @see https://hobbitdata.informatik.uni-leipzig.de/OPAL/LauNuts/Sources/
  */
-
 public interface LauReaderInterface {
 
 	/**
@@ -48,5 +46,5 @@ public interface LauReaderInterface {
 	 * rows. Data for each country uses the same keys. The keys are also used in LAU
 	 * container objects.
 	 */
-	public HashMap<String,Integer> getKeys() throws LauReaderException;
+	public HashMap<String, Integer> getKeys() throws LauReaderException;
 }
