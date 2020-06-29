@@ -23,7 +23,11 @@ import org.junit.Test;
  * 
  * The second test is to confirm the working functionality of createLauPolygons
  * method which extracts polygons with some useful metadata from provided shape
- * file.
+ * file. For this we created three small shape files. To decide which shape file
+ * of a lau to extract, first we converted the parent shape file to a geoJson file
+ * and from the geojson file, we created three small json files for three particular
+ * laus and eventually converted them back to shape files. For conversion, we used
+ * an external tool, https://www.statsilk.com/maps/convert-esri-shapefile-map-geojson-format.
  * 
  * @author Gourab Sahu
  *
