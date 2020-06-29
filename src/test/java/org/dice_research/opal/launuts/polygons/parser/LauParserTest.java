@@ -24,7 +24,7 @@ import org.junit.Test;
  * The second test is to confirm the working functionality of createLauPolygons
  * method which extracts polygons with some useful metadata from provided shape
  * file. For this we created three small shape files. To decide which shape file
- * of a lau to extract, first we converted the parent shape file to a geoJson file
+ * of a lau to extract, first we converted the parent shape file to a geojson file
  * and from the geojson file, we created three small json files for three particular
  * laus and eventually converted them back to shape files. For conversion, we used
  * an external tool, https://www.statsilk.com/maps/convert-esri-shapefile-map-geojson-format.
@@ -220,7 +220,7 @@ public class LauParserTest {
 	public void testCaseForLauPolygonsSyntheticLau() throws IOException, Exception {
 		
 		lauParser.inputSource= new File(new LauParserTest().getClass().getClassLoader()
-				.getResource("lau_synthetic/lau_synthetic-polygon.shp").getFile());
+				.getResource("lau_synthetic/lau_synthetic.shp").getFile());
 		lauParser.nameOfParserAfterFinalProcessing ="src/test/resources/lau_synthetic/synthetic_polygon.json";
 		lauParser.createLauPolygons();
 		lauParser.geojsonReader = new FileReader("src/test/resources/lau_synthetic/synthetic_polygon.json");
