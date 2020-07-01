@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,21 +12,16 @@ import java.util.Map.Entry;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.vocabulary.RDF;
 import org.dice_research.opal.launuts.dbpedia.DbpediaPlaceContainer;
 import org.dice_research.opal.launuts.lau.LauContainer;
 import org.dice_research.opal.launuts.nuts.NutsContainer;
 
 import io.github.galbiston.geosparql_jena.implementation.datatype.WKTDatatype;
 import io.github.galbiston.geosparql_jena.implementation.vocabulary.Geo;
-
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 
 public class ModelBuilder {
 
@@ -52,93 +46,9 @@ public class ModelBuilder {
 		// Additional prefixes to reduce model size
 		model.setNsPrefix("laude", Vocabularies.NS_LAU_DE);
 		model.setNsPrefix("nutscode", Vocabularies.NS_EU_NUTS_CODE);
-
-		// Prefix for identifying a geometry type
-		model.setNsPrefix("sf", "http://www.opengis.net/ont/sf#");
 	}
 
-	public void addPolygons(Resource res, String resource_id, JSONArray nuts_or_lau_polygons, String resource_id_type) {
-		/*
-		 * To extract polygon coordinates check if for the given resource's
-		 * nutcode/laucode there is a matching NUTS_ID/LAU_CODE in nuts_or_lau_polygons array 
-		 * and then extract the polygon coordinates.
-		 */
-		Iterator<JSONObject> polygons_iterator = nuts_or_lau_polygons.iterator();
-
-		while (polygons_iterator.hasNext()) {
-
-			JSONObject next_json_object = polygons_iterator.next();
-
-			/*
-			 * if nutscode's skos:notation matches a json object's nuts_id...
-			 * 
-			 * LAU_CODE and NUTS_ID are the keys which store the values for each
-			 * laus and nuts respectively.
-			 */
-			
-			if (next_json_object.get(resource_id_type).toString().equals(resource_id)
-					&& next_json_object.get("Valid_Polygon").equals("true")) {
-
-				Property polygon = getModel().createProperty("http://www.opengis.net/ont/sf#Polygon");
-				Property asWKT = getModel().createProperty("http://www.opengis.net/ont/geosparql#asWKT");
-
-				//*************************Outer_ring********************************
-				JSONArray outer_ring = (JSONArray) next_json_object.get("Outer_ring");				
-				String outer_ring_coordinates = "";
-				JSONArray coordinate = (JSONArray) outer_ring.get(0); //The 1st coordinate
-				
-				// Initialize with 1st coordinate's latitude and longitude
-				outer_ring_coordinates = coordinate.get(0) + " " + coordinate.get(1) + ",";
-
-				for (int nth_coordinate = 1; nth_coordinate < outer_ring.size(); nth_coordinate++) {
-					coordinate = (JSONArray) outer_ring.get(nth_coordinate);
-					if (nth_coordinate == outer_ring.size() - 1)
-						outer_ring_coordinates = "POLYGON(" + outer_ring_coordinates
-								+ coordinate.get(0) + " " + coordinate.get(1) + ")";
-					else
-						outer_ring_coordinates = outer_ring_coordinates + coordinate.get(0)
-								+ " " + coordinate.get(1) + ",";
-
-				}
-				
-				//****************Inner_rings(Part of an outer_ring)*******************************			
-				JSONArray inner_rings = (JSONArray) next_json_object.get("Inner_ring");
-				if(inner_rings.size()!=0) {
-					
-					String all_inner_rings_coordinates=","+" ";
-					
-					for(int number_of_inner_rings=0; number_of_inner_rings <inner_rings.size(); number_of_inner_rings++) {
-						JSONArray next_inner_ring = (JSONArray) inner_rings.get(number_of_inner_rings);
-						String next_inner_ring_coordinates = "";
-						for(int nth_coordinate = 0; nth_coordinate < next_inner_ring.size(); nth_coordinate++) {
-							coordinate = (JSONArray) next_inner_ring.get(nth_coordinate);
-							if (nth_coordinate == next_inner_ring.size() - 1)
-								next_inner_ring_coordinates = "(" + next_inner_ring_coordinates
-										+ coordinate.get(0) + " " + coordinate.get(1) + ")";
-							else
-								next_inner_ring_coordinates = next_inner_ring_coordinates + coordinate.get(0)
-										+ " " + coordinate.get(1) + ",";
-						}
-						all_inner_rings_coordinates= all_inner_rings_coordinates + next_inner_ring_coordinates;
-					}
-					outer_ring_coordinates = outer_ring_coordinates + all_inner_rings_coordinates;
-				}
-
-				Literal polygon_wkt = ResourceFactory.createTypedLiteral(outer_ring_coordinates,
-						WKTDatatype.INSTANCE);
-				
-				//This is a blank object for adding a polygon
-				Resource polygon_resource = getModel().createResource()
-						.addProperty(RDF.type, polygon)
-						.addProperty(asWKT, polygon_wkt);
-				
-				Property dcterms_location = getModel().createProperty("http://purl.org/dc/terms/Location");
-				getModel().add(res, (Property) dcterms_location, polygon_resource);
-			}
-		}
-	}
-
-	public ModelBuilder addNuts(Collection<NutsContainer> nutsCollection,JSONArray nuts_polygons_container) {
+	public ModelBuilder addNuts(Collection<NutsContainer> nutsCollection) {
 		for (NutsContainer container : nutsCollection) {
 
 			Resource nuts = getModel().createResource(container.getUri());
@@ -204,14 +114,13 @@ public class ModelBuilder {
 					}
 				}
 			}
-			addPolygons(nuts,container.notation, nuts_polygons_container, "NUTS_ID");
 
 			nuts3map.put(container.notation, nuts);
 		}
 		return this;
 	}
 
-	public ModelBuilder addLau(List<LauContainer> lauList, JSONArray lau_polygons_container) {
+	public ModelBuilder addLau(List<LauContainer> lauList) {
 		for (LauContainer container : lauList) {
 			Resource lau = getModel().createResource(container.getUri());
 			if (nuts3map.containsKey(container.nuts3code)) {
@@ -236,7 +145,6 @@ public class ModelBuilder {
 				System.err.println("Unknown NUTS3 code: " + container.nuts3code + " for " + container.lauCode);
 				continue;
 			}
-			addPolygons(lau,container.lauCode, lau_polygons_container, "LAU_CODE");
 		}
 		return this;
 	}

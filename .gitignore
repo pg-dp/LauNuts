@@ -114,3 +114,4 @@ launuts_geojson_and_shape_files
 /NUT_Polygons.json
 /LAU_Polygons.json
 /NUT_Polygons.json
+src/test/resources/lau_synthetic/synthetic_polygon.json

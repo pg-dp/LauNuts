@@ -1,8 +1,6 @@
 package org.dice_research.opal.launuts;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.List;
@@ -16,9 +14,6 @@ import org.dice_research.opal.launuts.lau.LauContainer;
 import org.dice_research.opal.launuts.matcher.MatcherVersion2;
 import org.dice_research.opal.launuts.matcher.StaticMappings;
 import org.dice_research.opal.launuts.nuts.NutsContainer;
-
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 
 /**
  * Main entry point.
@@ -49,29 +44,13 @@ public class Main {
 		// Match datasets
 		// Writes files for analysis
 		MatcherVersion2 matcher = new MatcherVersion2().run();
-		
-		/*
-		 * Polygons for NUTs and Laus of Germany has been extracted and stored in 
-		 * json files. Read the array and pass it to addGeoData so that polygon
-		 * cooridanates can be added in turtle file which is being created with
-		 * ModelBuilder.
-		 */
-		JSONParser parser = new JSONParser();
-		Reader nuts_reader;
-		Reader laus_reader;
-		
-		nuts_reader = new FileReader("NUT_Polygons.json");
-		JSONArray nut_polygons = (JSONArray) parser.parse(nuts_reader);
-		
-		laus_reader = new FileReader("LAU_Polygons.json");
-		JSONArray lau_polygons = (JSONArray) parser.parse(laus_reader);
 
 		// Create new model
 		ModelBuilder modelBuilder = new ModelBuilder()
 
-				.addNuts(nutsIndex.values(),nut_polygons)
+				.addNuts(nutsIndex.values())
 
-				.addLau(lauList,lau_polygons)
+				.addLau(lauList)
 
 				.addGeoData(dbpediaIndex, matcher.getNutsToDbpedia(), matcher.getLauToDbpedia())
 
