@@ -120,7 +120,7 @@ public class NutParserTest {
 	}
 
 	@Test
-	public void testCaseForHoleTestingOfSüdlicheweinstraße()
+	public void testCaseForHoleTestingOfSuedlicheweinstrasse()
 			throws PolygonParserException, ClassCastException, FileNotFoundException {
 
 		hole.polygons.add(nutParser.getHole(NUTS_CODE_OF_SÜDLICHE_WEINSTRASSE, 1, 1));

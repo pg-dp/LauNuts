@@ -143,7 +143,7 @@ public class LauParserTest {
 	 * third child polygons of Oldenswort (DE_01054095) respectively.
 	 */
 	@Test
-	public void testCaseForHoleTestingOfTetenbüll() throws PolygonParserException {
+	public void testCaseForHoleTestingOfTetenbull() throws PolygonParserException {
 		final Polygon FIRST_HOLE_OF_TETENBÜLL = lauParser.getHole("DE_01054135", 1, 1);
 		final Polygon SECOND_POLYGON_OF_OLDENSWORT = lauParser.getOuterRingOfChildPolygonOfMultipolygon("DE_01054095", 2);
 
