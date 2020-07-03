@@ -2,7 +2,9 @@ package org.dice_research.opal.launuts.polygons.parser;
 
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.LinearRing;
 import org.json.simple.JSONObject;
 import org.dice_research.opal.launuts.lau.LauReaderInterface;
 import org.dice_research.opal.launuts.polygons.Point;
@@ -15,6 +17,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -61,6 +64,53 @@ public class NutsParser implements PolygonParserInterface {
 
 	// Nuts-id and Nuts-name for all nuts.
 	private static HashMap<String, String> nutsIdNutsName = new HashMap<String, String>();
+
+	public LinearRing getOuterRing(JSONArray coordinates) {
+
+		LinearRing outerRing = null;
+		GeometryFactory geometryFactory = new GeometryFactory();
+
+		// Coordinates in the format: (Latitude, Longitude)
+		ArrayList<Coordinate> outerRingCoordinatesLatLong = new ArrayList<Coordinate>();
+
+		// Coordinates in the format: (Longitude, Latitude)
+		JSONArray outerRingCoordinatesLongLat = (JSONArray) coordinates.get(0);
+
+		for (int count = 0; count < outerRingCoordinatesLongLat.size(); count++) {
+
+			/*
+			 * This array will be used to change the form of coordinates. It contains same
+			 * coordinates as "points" but in different form.
+			 */
+			JSONArray temp_array = (JSONArray) outerRingCoordinatesLongLat.get(count);
+			try {
+				outerRingCoordinatesLatLong.add(new Coordinate((long) temp_array.get(1), (long) temp_array.get(0)));
+			} catch (Exception e) {
+				try {
+					outerRingCoordinatesLatLong
+							.add(new Coordinate((double) temp_array.get(1), (double) temp_array.get(0)));
+				} catch (ClassCastException X_double_Y_long) {
+
+//							System.out.println("Solution1: "+Coordinates_array_Long_Lat.get(1).getClass());
+//							System.out.println("Solution2: "+Coordinates_array_Long_Lat.get(0).getClass());
+					try {
+						Long y_cord = (long) temp_array.get(0);
+						outerRingCoordinatesLatLong
+								.add(new Coordinate((double) temp_array.get(1), y_cord.doubleValue()));
+					} catch (ClassCastException X_long_Y_double) {
+						Long x_cord = (long) temp_array.get(1);
+						outerRingCoordinatesLatLong
+								.add(new Coordinate(x_cord.doubleValue(), (double) temp_array.get(0)));
+					}
+				}
+			}
+		}
+
+		outerRing = geometryFactory
+				.createLinearRing((Coordinate[]) outerRingCoordinatesLatLong.toArray(new Coordinate[] {}));
+
+		return outerRing;
+	}
 
 	public JSONArray getInnerRings(JSONArray childPolygonCoordinatesArrays) {
 
@@ -190,13 +240,13 @@ public class NutsParser implements PolygonParserInterface {
 	}
 
 	/**
-	 * This method takes coordinates which are in the form of longitude, latitude
-	 * and convert them to latitude, longitude format.
+	 * This method can change the form of coordinates from (latitude, longitude) to (longitude,latitude)
+	 * and vice-versa.
 	 * 
 	 * @param coordinates
 	 * @return {@link JSONArray}
 	 */
-	public static JSONArray getCoordinatesLatLongFormat(JSONArray coordinates) {
+	public JSONArray changeCoordinatesFormat(JSONArray coordinates) {
 
 		// This will store inner ring coordinates for one inner-ring at a time
 		JSONArray coordinatesInLatLongFormat = new JSONArray();
@@ -215,12 +265,11 @@ public class NutsParser implements PolygonParserInterface {
 
 				JSONArray oldCoordinates = (JSONArray) oldChildCoordinates.get(count);
 				JSONArray newCoordinates = new JSONArray();
-				if (Double.parseDouble(oldCoordinates.toArray()[1].toString()) > Double
-						.parseDouble(oldCoordinates.toArray()[0].toString())) {
+
 					newCoordinates.add(oldCoordinates.toArray()[1]); // Lattitude
 					newCoordinates.add(oldCoordinates.toArray()[0]); // Longitude
 					newChildCoordinates.add(newCoordinates);
-				}
+				
 
 			}
 			coordinatesInLatLongFormat.add(newChildCoordinates);
@@ -373,7 +422,7 @@ public class NutsParser implements PolygonParserInterface {
 											JSONArray childPolygonOuterRing = (JSONArray) childPolygonCoordinates
 													.get(0);
 											outerRingSize = outerRingSize + childPolygonOuterRing.size();
-											JSONArray childPolygonCoordinatesLatLongFormat = getCoordinatesLatLongFormat(
+											JSONArray childPolygonCoordinatesLatLongFormat = changeCoordinatesFormat(
 													childPolygonCoordinates);
 											coordinatesLatLongFormat.add(childPolygonCoordinatesLatLongFormat);
 
@@ -416,7 +465,7 @@ public class NutsParser implements PolygonParserInterface {
 
 										JSONArray polygonOuterRing = (JSONArray) coordinatesLongLatFormat.get(0);
 										outerRingSize = outerRingSize + polygonOuterRing.size();
-										coordinatesLatLongFormat = getCoordinatesLatLongFormat(
+										coordinatesLatLongFormat = changeCoordinatesFormat(
 												coordinatesLongLatFormat);
 
 										// Check for validity of polygon

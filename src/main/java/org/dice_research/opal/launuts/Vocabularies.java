@@ -18,6 +18,7 @@ public abstract class Vocabularies {
 	public static final String NS_XSD = "http://www.w3.org/2001/XMLSchema#";
 
 	public static final String NS_DCTERMS = "http://purl.org/dc/terms/";
+	public static final String NS_DCAT = "https://www.w3.org/ns/dcat#";
 	public static final Property PROP_REPLACES = ResourceFactory.createProperty(NS_DCTERMS, "replaces");
 	public static final Property PROP_ISREPLACEDBY = ResourceFactory.createProperty(NS_DCTERMS, "isReplacedBy");
 

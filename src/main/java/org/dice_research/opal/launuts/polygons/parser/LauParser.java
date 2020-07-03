@@ -115,7 +115,7 @@ public class LauParser extends NutsParser {
 				}
 				JSONArray child_polygon_outer_ring = (JSONArray) childPolygonCoordinates.get(0);
 				outerRingSize = outerRingSize + child_polygon_outer_ring.size();
-				JSONArray childPolygonCoordinatesInLatLongFormat = getCoordinatesLatLongFormat(
+				JSONArray childPolygonCoordinatesInLatLongFormat = changeCoordinatesFormat(
 						childPolygonCoordinates);
 				coordinatesLatLongFormat.add(childPolygonCoordinatesInLatLongFormat);
 			}
@@ -135,7 +135,7 @@ public class LauParser extends NutsParser {
 			else
 				lauPolygon.put("valid_polygon", "false");
 			lauPolygon.put("geometry_type", "Polygon");
-			lauPolygon.put("coordinates", getCoordinatesLatLongFormat(firstChildOfCoordinates));
+			lauPolygon.put("coordinates", changeCoordinatesFormat(firstChildOfCoordinates));
 
 			if (firstChildOfCoordinates.size() > 1)
 				holes = lauParser.getInnerRings(coordinates);
