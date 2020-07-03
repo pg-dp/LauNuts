@@ -1,6 +1,7 @@
 package org.dice_research.opal.launuts.polygons.parser;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -25,6 +26,13 @@ import org.junit.Test;
  */
 
 public class NutParserTest {
+	
+	//Please uncomment the folling two lines to create NUTS_Polygons.json
+//	public static void main(String[] args) throws IOException, Exception {
+//		NutsParser nutsParser = new LauParser();
+//		nutsParser.createNutPolygons();
+//	}
+	
 
 	public TestMultiPolygons tester = new TestMultiPolygons();
 	public NutsParser nutParser = new NutsParser();

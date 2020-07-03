@@ -37,6 +37,12 @@ public class LauParserTest {
 
 	public LauParser lauParser = new LauParser();
 	
+	//Please uncomment the folling two lines to create LAU_Polygons.json
+//	public static void main(String[] args) throws IOException, Exception {
+//		LauParser lauParser2 = new LauParser();
+//		lauParser2.createLauPolygons();
+//	}
+	
 	/******************************Tests for lau holes*****************************************/
 	
 	public TestMultiPolygons tester = new TestMultiPolygons();
