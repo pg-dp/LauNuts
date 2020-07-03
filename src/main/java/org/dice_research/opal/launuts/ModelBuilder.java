@@ -112,13 +112,13 @@ public class ModelBuilder {
 					Resource centroidResource = getModel().createResource().addProperty(RDF.type, pointProperty)
 							.addProperty(asWKTProperty, centroidWkt);
 
-					if (innerRings.size() == 0)
+					if (innerRings.size() == 0) {
 						polygonResource.addProperty(centroidProperty, centroidResource);
-
-					getModel().add(res, (Property) dctermsLocationProperty, polygonResource);
+						getModel().add(res, (Property) dctermsLocationProperty, polygonResource);
+					}
 				} else
-				
-				//When a lau or nuts is a multipolygon
+
+				// When a lau or nuts is a multipolygon
 				{
 					for (int i = 0; i < coordinates.size(); i++) {
 						JSONArray childCordinates = (JSONArray) coordinates.get(i);
@@ -140,10 +140,11 @@ public class ModelBuilder {
 						Resource centroidResource = getModel().createResource().addProperty(RDF.type, pointProperty)
 								.addProperty(asWKTProperty, centroidWkt);
 
-						if (innerRings.size() == 0)
+						if (innerRings.size() == 0) {
 							polygonResource.addProperty(centroidProperty, centroidResource);
+							getModel().add(res, (Property) dctermsLocationProperty, polygonResource);
+						}
 
-						getModel().add(res, (Property) dctermsLocationProperty, polygonResource);
 					}
 				}
 			}
