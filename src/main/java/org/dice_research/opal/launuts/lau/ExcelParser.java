@@ -25,12 +25,11 @@ public class ExcelParser implements LauReaderInterface {
     private static final String FILE_NAME = "EU-28-LAU-2019-NUTS-2016.xlsx";
 
     private Workbook workbook;
-    private Map<String, List<String>> getCodes;
     private HashMap<String, Integer> getkeys;
     private List<String> countryIds;
     private HashMap<String, HashMap<String, LauContainer>> index;
+    private HashMap<String, List<String>> countryIdToNutsCodes;
     private boolean parsed = false;
-    private String currentCountry = "DE";
 
     public LauReaderInterface setLauSourceDirectory(File directory) throws IOException {
 
@@ -49,13 +48,24 @@ public class ExcelParser implements LauReaderInterface {
 
     @Override
     public Map<String, List<String>> getCodes(String countryId) {
-        if ((getCountryIds().contains(countryId)) &&
-                (!parsed || !currentCountry.equals(countryId))) {
+        Map<String, List<String>> getCodes = new HashMap<String, List<String>>();
+        HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<String, LauContainer>();
 
-            currentCountry = countryId;
-            parse();
+        if (getCountryIds().contains(countryId)) {
+            if(!parsed)
+                parse();
+        }
+        else
+            return null ;
+
+        List<String> nutCodes = countryIdToNutsCodes.get(countryId); // gets the nuts for the given country
+        for (String nutCode : nutCodes) {
+            laucodeToLauContainerMap = index.get(nutCode);
+            List<String> lauCodes = new ArrayList<>(laucodeToLauContainerMap.keySet());
+            getCodes.put(nutCode, lauCodes);
         }
 
+        getCodes.remove(""); // removes empty key , value pair
         return getCodes;
     }
 
@@ -63,7 +73,7 @@ public class ExcelParser implements LauReaderInterface {
     public LauContainer getData(String nutsCode, String lauCode) {
 
         LauContainer container = null;
-        Map<String, LauContainer> lauCodeToContainerMap;
+        Map<String, LauContainer> lauCodeToContainerMap = new HashMap<String, LauContainer>();;
 
         if (!parsed) {
             parse();
@@ -89,24 +99,11 @@ public class ExcelParser implements LauReaderInterface {
     }
 
     private void parse() {
+
         String countryId;
-
-        if (countryIds == null) {
-            countryIds = new LinkedList<>();
-            for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
-                countryId = workbook.getSheetAt(i).getSheetName();
-                if (countryId.length() == 2)
-                    countryIds.add(countryId);
-            }
-            return;
-        }
-
-        Sheet sheet = workbook.getSheet(currentCountry);
-        //use LauContainer need as per your use , unused here.
-        List<LauContainer> lauContainerList = new LinkedList<>();
-        getCodes = new HashMap<>();
         getkeys = new HashMap<>();
         index = new HashMap<>();
+        countryIdToNutsCodes = new HashMap<>();
 
         //creates an easy to read map according to sheet headers
         getkeys.put("nuts3code", 0);
@@ -130,53 +127,64 @@ public class ExcelParser implements LauReaderInterface {
         getkeys.put("fuaIdChange", 18);
         getkeys.put("fuaName", 19);
 
-        //Adds the data to the container for creating RDF Map
-        for (Row row : Iterables.skip(sheet, 1)) {
 
-            HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<>();
-            LauContainer container = new LauContainer();
-            List<String> lauCodes = new ArrayList<>();
+        if (countryIds == null) {
+            countryIds = new LinkedList<>();
+            for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
+                Sheet sheet = workbook.getSheetAt(i);  // gets the excel sheet
+                countryId = sheet.getSheetName(); // gets the sheet name
+                List<String> nutsCodes = new ArrayList<>(); // stores the nutsCodesof a single Country
 
-            container.nuts3code = cellValues(row, "nuts3code");
-            container.lauCode = cellValues(row, "lauCode");
-            container.lauNameLatin = cellValues(row, "lauNameLatin");
-            container.lauNameNational = cellValues(row, "lauNameNational");
-            container.change = cellValues(row, "change");
-            container.population = cellValues(row, "population");
-            container.totalArea = cellValues(row, "totalArea");
-            container.degurba = cellValues(row, "degurba");
-            container.degChange = cellValues(row, "degChange");
-            container.coastalArea = cellValues(row, "coastalArea");
-            container.coastalAreaChange = cellValues(row, "coastalAreaChange");
-            container.cityId = cellValues(row, "cityId");
-            container.cityIdChange = cellValues(row, "cityIdChange");
-            container.cityName = cellValues(row, "cityName");
-            container.greaterCityId = cellValues(row, "greaterCityId");
-            container.greaterCityIdChange = cellValues(row, "greaterCityIdChange");
-            container.greaterCityName = cellValues(row, "greaterCityName");
-            container.fuaId = cellValues(row, "fuaId");
-            container.fuaIdChange = cellValues(row, "fuaIdChange");
-            container.fuaName = cellValues(row, "fuaName");
+                if (countryId.length() != 2) // for sheets which are not countries sheet
+                    continue;
 
-            lauContainerList.add(container);
+                countryIds.add(countryId); // Adds the countries into a list countryIDs
 
-            if (!index.containsKey(container.nuts3code)) {
-                laucodeToLauContainerMap.put(container.lauCode, container);
-                index.put(container.nuts3code, laucodeToLauContainerMap);
-                lauCodes.add(container.lauCode);
-            } else {
-                laucodeToLauContainerMap = index.get(container.nuts3code);
-                laucodeToLauContainerMap.put(container.lauCode, container);
-                index.put(container.nuts3code, laucodeToLauContainerMap);
+                //Adds the data to the container for creating RDF Map
+                for (Row row : Iterables.skip(sheet, 1)) {
 
-                List<String> mainList = new ArrayList<>(laucodeToLauContainerMap.keySet());
-                lauCodes.addAll(mainList);
+                    HashMap<String, LauContainer> laucodeToLauContainerMap = new HashMap<>();
+                    LauContainer container = new LauContainer();
+
+                    container.nuts3code = cellValues(row, "nuts3code");
+                    container.lauCode = cellValues(row, "lauCode");
+                    container.lauNameLatin = cellValues(row, "lauNameLatin");
+                    container.lauNameNational = cellValues(row, "lauNameNational");
+                    container.change = cellValues(row, "change");
+                    container.population = cellValues(row, "population");
+                    container.totalArea = cellValues(row, "totalArea");
+                    container.degurba = cellValues(row, "degurba");
+                    container.degChange = cellValues(row, "degChange");
+                    container.coastalArea = cellValues(row, "coastalArea");
+                    container.coastalAreaChange = cellValues(row, "coastalAreaChange");
+                    container.cityId = cellValues(row, "cityId");
+                    container.cityIdChange = cellValues(row, "cityIdChange");
+                    container.cityName = cellValues(row, "cityName");
+                    container.greaterCityId = cellValues(row, "greaterCityId");
+                    container.greaterCityIdChange = cellValues(row, "greaterCityIdChange");
+                    container.greaterCityName = cellValues(row, "greaterCityName");
+                    container.fuaId = cellValues(row, "fuaId");
+                    container.fuaIdChange = cellValues(row, "fuaIdChange");
+                    container.fuaName = cellValues(row, "fuaName");
+
+
+                    //fills map index (NutsCode, Map(lauCodes,LauContainer))
+                    if (!index.containsKey(container.nuts3code)) {
+                        laucodeToLauContainerMap.put(container.lauCode, container);
+                        index.put(container.nuts3code, laucodeToLauContainerMap);
+                    } else {
+                        laucodeToLauContainerMap = index.get(container.nuts3code);
+                        laucodeToLauContainerMap.put(container.lauCode, container);
+                        index.put(container.nuts3code, laucodeToLauContainerMap);
+                    }
+
+                    nutsCodes.add(container.nuts3code);
+                }
+
+                countryIdToNutsCodes.put(countryId, nutsCodes);
             }
-
-            getCodes.put(container.nuts3code, lauCodes);
         }
 
-        getCodes.remove("");
         parsed = true;
     }
 
