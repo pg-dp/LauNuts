@@ -1,26 +1,27 @@
 package org.dice_research.opal.launuts.lau;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Interface for LAU reader.
- * 
+ * <p>
  * TODO This is a development recommendation, changes are allowed.
- * 
- * @see https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
- *      "Correspondence table LAU – NUTS 2016, EU-28 and EFTA / available Candidate Countries; 2019; 23 MB"
- * @see https://hobbitdata.informatik.uni-leipzig.de/OPAL/LauNuts/Sources/
- * 
+ *
  * @author Adrian Wilke
+ * @see https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
+ * "Correspondence table LAU – NUTS 2016, EU-28 and EFTA / available Candidate Countries; 2019; 23 MB"
+ * @see https://hobbitdata.informatik.uni-leipzig.de/OPAL/LauNuts/Sources/
  */
 public interface LauReaderInterface {
 
 	/**
 	 * Sets source directory for LAU reader. Should contain XLSX and/or CSV files.
 	 */
-	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException;
+	public LauReaderInterface setLauSourceDirectory(File directory) throws LauReaderException, IOException;
 
 	/**
 	 * Returns a list of available country IDs.
@@ -34,7 +35,7 @@ public interface LauReaderInterface {
 
 	/**
 	 * Returns a container object containing parsed data for a country.
-	 * 
+	 *
 	 * TODO Dev note: Changing the structure auf {@link LauContainer} is absolutely
 	 * allowed.
 	 */
@@ -45,5 +46,5 @@ public interface LauReaderInterface {
 	 * rows. Data for each country uses the same keys. The keys are also used in LAU
 	 * container objects.
 	 */
-	public List<String> getKeys() throws LauReaderException;
+	public HashMap<String, Integer> getKeys() throws LauReaderException;
 }
